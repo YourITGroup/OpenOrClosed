@@ -391,3 +391,4 @@ FodyWeavers.xsd
 # Ignore package files other than the manifest.
 /Package
 !/Package/package.xml
+OpenOrClosed.*.zip

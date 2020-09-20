@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>package.manifest</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed</orgPath>
+      <orgName>package.manifest</orgName>
+    </file>
+    <file>
+      <guid>OpenOrClosed.css</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/css</orgPath>
+      <orgName>OpenOrClosed.css</orgName>
+    </file>
+    <file>
+      <guid>OpenOrClosed.resource.js</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/js</orgPath>
+      <orgName>OpenOrClosed.resource.js</orgName>
+    </file>
+    <file>
+      <guid>SpecialHours.controller.js</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/js</orgPath>
+      <orgName>SpecialHours.controller.js</orgName>
+    </file>
+    <file>
+      <guid>StandardHours.controller.js</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/js</orgPath>
+      <orgName>StandardHours.controller.js</orgName>
+    </file>
+    <file>
+      <guid>TimePicker.controller.js</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/js</orgPath>
+      <orgName>TimePicker.controller.js</orgName>
+    </file>
+    <file>
+      <guid>timeformat.html</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/views/prevalues</orgPath>
+      <orgName>timeformat.html</orgName>
+    </file>
+    <file>
+      <guid>specialHours.html</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/views</orgPath>
+      <orgName>specialHours.html</orgName>
+    </file>
+    <file>
+      <guid>standardHours.html</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/views</orgPath>
+      <orgName>standardHours.html</orgName>
+    </file>
+    <file>
+      <guid>timepicker.html</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/views</orgPath>
+      <orgName>timepicker.html</orgName>
+    </file>
+    <file>
+      <guid>en-US.xml</guid>
+      <orgPath>~/App_Plugins/OpenOrClosed/lang</orgPath>
+      <orgName>en-US.xml</orgName>
+    </file>
+    <file>
+      <guid>OpenOrClosed.dll</guid>
+      <orgPath>~/bin</orgPath>
+      <orgName>OpenOrClosed.dll</orgName>
+    </file>
+    <file>
+      <guid>OpenOrClosed.Core.dll</guid>
+      <orgPath>~/bin</orgPath>
+      <orgName>OpenOrClosed.Core.dll</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>Open Or Closed</name>
+      <version>0.1.0</version>
+      <iconUrl></iconUrl>
+      <license url="http://opensource.org/licenses/MIT">MIT License</license>
+      <url>https://github.com/YourITGroup/OpenOrClosed</url>
+      <requirements type="Strict">
+        <major>8</major>
+        <minor>6</minor>
+        <patch>4</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Robert Foster</name>
+      <website>https://our.umbraco.com/members/robertjf/</website>
+    </author>
+    <contributors>
+      <contributor>Robert Foster</contributor>
+    </contributors>
+    <readme><![CDATA[Adds Property Editors for Business Hours selection in Umbraco 8 with inspiration drawn from the Dexmoor.BusinessHours package for Umbraco 7]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+  <Actions />
+</umbPackage>

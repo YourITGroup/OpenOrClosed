@@ -1,0 +1,81 @@
+<div ng-controller="OpenOrClosed.PropertyEditors.StandardHours.controller" class="business-hours">
+    <ng-form name="businessHoursForm">
+        <div ng-repeat="d in model.value">
+            <div class="row date-row">
+                <div class="span2">
+                    <label>{{d.dayoftheweek}}</label>
+                </div>
+                <div class="span1">
+                    <umb-toggle checked="d.isOpen" on-click="toggleOpen($index)">
+                    </umb-toggle>
+                </div>
+                <div class="span1">
+                    <label ng-show="d.isOpen">Open</label>
+                    <label ng-show="!d.isOpen">Closed</label>
+                </div>
+                <div class="span5" ng-show="d.isOpen">
+                    <div ng-repeat="h in d.hoursOfBusiness" class="row">
+                        <span id="timepicker_{{model.alias}}_{{$parent.$index}}_{{$index}}_opensAt">
+                            <umb-date-time-picker ng-model="h.opensAt"
+                                                  options="vm.openTimePickerConfig"
+                                                  on-setup="timePickerSetup($parent.$index, $index, 'opensAt', fpItem)"
+                                                  on-change="timePickerChange($parent.$index, $index, 'opensAt', dateStr)">
+                                <span class="input-append">
+                                    <input name="timepicker-{{$parent.$parent.$parent.$index}}-{{$parent.$parent.$index}}-opensAt"
+                                           id="{{model.alias}}_{{$parent.$parent.$parent.$index}}_{{$parent.$parent.$index}}_opensAt"
+                                           type="text"
+                                           ng-model="vm.pickers[$parent.$parent.$parent.$index].hours[$parent.$parent.$index].opensAt.pickerValue"
+                                           ng-blur="timeInputChanged($parent.$parent.$parent.$index, $parent.$parent.$index, 'opensAt')"
+                                           ng-required="true"
+                                           val-server="value"
+                                           class="datepickerinput"
+                                           autocomplete="off" />
+                                    <span class="add-on" aria-hidden="true">
+                                        <i class="icon-time"></i>
+                                    </span>
+                                </span>
+                            </umb-date-time-picker>
+                        </span>
+                        <label> to </label>
+                        <span id="timepicker_{{model.alias}}_{{$parent.$index}}_{{$index}}_closesAt">
+                            <umb-date-time-picker ng-model="h.closesAt"
+                                                  options="vm.closeTimePickerConfig"
+                                                  on-setup="timePickerSetup($parent.$index, $index, 'closesAt', fpItem)"
+                                                  on-change="timePickerChange($parent.$index, $index, 'closesAt', dateStr)">
+                                <span class="input-append">
+                                    <input name="timepicker-{{$parent.$parent.$parent.$index}}-{{$parent.$parent.$index}}-closesAt"
+                                           id="{{model.alias}}_{{$parent.$parent.$parent.$index}}_{{$parent.$parent.$index}}_closesAt"
+                                           type="text"
+                                           ng-model="vm.pickers[$parent.$parent.$parent.$index].hours[$parent.$parent.$index].closesAt.pickerValue"
+                                           ng-blur="timeInputChanged($parent.$parent.$parent.$index, $parent.$parent.$index, 'closesAt')"
+                                           ng-required="true"
+                                           val-server="value"
+                                           class="datepickerinput"
+                                           autocomplete="off" />
+                                    <span class="add-on" aria-hidden="true">
+                                        <i class="icon-time"></i>
+                                    </span>
+                                </span>
+                            </umb-date-time-picker>
+                        </span>
+
+                        <button type="button" class="umb-node-preview__action umb-node-preview__action--red ng-scope"
+                                title="Remove Hours"
+                                ng-click="deleteHours($index, $parent.$index)">
+                            <localize key="content_deleteHours">Remove hours</localize>
+                        </button>
+
+                        <span ng-show="model.config.appointmentOnlyBoolean">
+                            <label>Appointment only</label>
+                            <umb-toggle checked="h.byAppointmentOnly" on-click="toggleByAppointmentOnly(h)">
+                            </umb-toggle>
+                        </span>
+                    </div>
+                    <button type="button" class="umb-node-preview-add mb3" ng-click="addHours($index)">
+                        <localize key="content_addHours">Add hours</localize>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-form>
+</div>

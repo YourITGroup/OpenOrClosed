@@ -1,0 +1,34 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Open Or Closed Core dll</title>
+    <authors>Robert Foster</authors>
+    <owners>Robert Foster</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      <![CDATA[Core Dll for the Open Or Closed Umbraco Plugin for use with Core projects and DataModels
+          ]]>
+    </description>
+    <summary>Provides Property Editors for OpenOrClosed.SpecialBusinessHours and OpenOrClosed.StandardBusinessHours Umbraco 8 PropertyEditors</summary>
+    <copyright>Copyright 2020 Robert Foster</copyright>
+    <projectUrl>https://github.com/YourITGroup/ConfigurationEditor</projectUrl>
+    <language />
+    <releaseNotes>
+      <![CDATA[
+
+      ]]>
+    </releaseNotes>
+    <iconUrl>https://youritteam.blob.core.windows.net/assets/youritteam_64.png</iconUrl>
+    <icon>images\icon.png</icon>
+
+    <tags>Umbraco Business Hours PropertyValueConverter</tags>
+    <dependencies>
+      <dependency id="UmbracoCMS" version="[8.6.0, )"></dependency>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src=".\icon.png" target="images"/>
+  </files>
+</package>

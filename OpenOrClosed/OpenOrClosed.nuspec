@@ -1,0 +1,34 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Open Or Closed</title>
+    <authors>Robert Foster</authors>
+    <owners>Robert Foster</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      <![CDATA[Open Or Closed - Adds Property Editors for Business Hours selection in Umbraco 8.
+          ]]>
+    </description>
+    <summary>Adds Property Editors for Business Hours selection in Umbraco 8 with inspiration drawn from the Dexmoor.BusinessHours package for Umbraco 7</summary>
+    <copyright>Copyright 2020 Robert Foster</copyright>
+    <projectUrl>https://github.com/YourITGroup/ConfigurationEditor</projectUrl>
+    <language />
+    <releaseNotes>
+      <![CDATA[
+      ]]>
+    </releaseNotes>
+    <iconUrl>https://youritteam.blob.core.windows.net/assets/youritteam_64.png</iconUrl>
+    <icon>images\icon.png</icon>
+
+    <tags>Umbraco Business Hours PropertyEditor</tags>
+    <dependencies>
+      <dependency id="UmbracoCMS" version="[8.6.0, )"></dependency>
+      <dependency id="OpenOrClosed.Core" version="[0.1.0]"></dependency>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src=".\icon.png" target="images"/>
+  </files>
+</package>

@@ -71,7 +71,7 @@
     <package>
       <name>Open Or Closed</name>
       <version>0.1.0</version>
-      <iconUrl></iconUrl>
+      <iconUrl>https://raw.githubusercontent.com/YourITGroup/OpenOrClosed/master/assets/OpenOrClosed_logo.png</iconUrl>
       <license url="http://opensource.org/licenses/MIT">MIT License</license>
       <url>https://github.com/YourITGroup/OpenOrClosed</url>
       <requirements type="Strict">

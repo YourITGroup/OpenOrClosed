@@ -1,5 +1,7 @@
 ﻿# Open or Closed for Umbraco
 
+![Open or Closed Logo](https://raw.githubusercontent.com/YourITGroup/OpenOrClosed/master/assets/OpenOrClosed_logo.png)
+
 Yet another Business Hours package supporting Umbraco 8.6+
 
 Nuget Packages:
@@ -15,7 +17,7 @@ Adds an Property Editors to manage standard and special (read holiday) opening/c
 
 The OpenOrClosed.Core nuget package can be used in Core projects to add support for ModelsBuilder generated Content Models.
 
-Compiled against Umbraco 8.6.0
+Compiled against Umbraco 8.6.0 and DotNet Framework 4.7.2
 
 ## Sample Web project:
 

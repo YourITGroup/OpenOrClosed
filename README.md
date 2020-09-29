@@ -7,7 +7,7 @@ Yet another Business Hours package supporting Umbraco 8.6+
 Nuget Packages:
 
 | Package | Version | Downloads |
-| -- | -- |
+| -- | -- | -- |
 | OpenOrClosed | [![NuGet release](https://img.shields.io/nuget/v/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) | [![NuGet release](https://img.shields.io/nuget/dt/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) |
 | OpenOrClosed.Core | [![NuGet release](https://img.shields.io/nuget/v/OpenOrClosed.Core.svg)](https://www.nuget.org/packages/OpenOrClosed.Core/) | [![NuGet release](https://img.shields.io/nuget/dt/OpenOrClosed.Core.svg)](https://www.nuget.org/packages/OpenOrClosed.Core/) |
 

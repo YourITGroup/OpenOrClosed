@@ -25,3 +25,6 @@ Compiled against Umbraco 8.6.0 and DotNet Framework 4.7.2
 * Umbraco 8.7.0
 
 ## RoadMap / Releases:
+
+## Logo
+The package logo uses the "open hours" (by Gregor Cesnar) icon from the Noun Project, licensed under CC BY 3.0 US.

@@ -10,8 +10,8 @@
                     </umb-toggle>
                 </div>
                 <div class="span1">
-                    <label ng-show="d.isOpen">Open</label>
-                    <label ng-show="!d.isOpen">Closed</label>
+                    <label ng-show="d.isOpen">{{model.config.lbelOpen}}</label>
+                    <label ng-show="!d.isOpen">{{model.config.lbelClosed}}</label>
                 </div>
                 <div class="span5" ng-show="d.isOpen">
                     <div ng-repeat="h in d.hoursOfBusiness" class="row">

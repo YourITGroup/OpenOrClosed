@@ -9,6 +9,8 @@
         dateFormat: "YYYY-MM-DD",
         timeFormat: "HH:mm:ss",
         time_24hr: true,
+        labelOpen: 'Open',
+        labelClosed: 'Closed',
         icons: {
             time: "icon-time",
             date: "icon-calendar",

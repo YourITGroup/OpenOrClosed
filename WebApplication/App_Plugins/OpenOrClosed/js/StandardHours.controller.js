@@ -8,6 +8,8 @@
         showBankHolidays: false,
         timeFormat: "HH:mm:ss",
         time_24hr: true,
+        labelOpen: 'Open',
+        labelClosed: 'Closed',
         icons: {
             time: "icon-time",
             up: "icon-chevron-up",
@@ -23,6 +25,13 @@
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
     $scope.model.config.showBankHolidays = Object.toBoolean($scope.model.config.showBankHolidays)
 
+    if ($scope.model.config.labelOpen.length === 0) {
+        $scope.model.config.labelOpen = 'Open'
+    }
+
+    if ($scope.model.config.labelClosed.length === 0) {
+        $scope.model.config.labelClosed = 'Closed'
+    }
     $scope.vm = {
         pickers: [],
         openTimePickerConfig: {

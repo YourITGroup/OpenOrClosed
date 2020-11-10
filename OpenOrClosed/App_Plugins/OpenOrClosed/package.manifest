@@ -102,7 +102,7 @@
             "view": "textstring"
           },
           {
-            "label": "Open Label",
+            "label": "Closed Label",
             "description": "Override the label for the Closed status",
             "key": "labelClosed",
             "view": "textstring"

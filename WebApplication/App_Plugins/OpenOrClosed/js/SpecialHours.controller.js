@@ -9,6 +9,8 @@
         dateFormat: "YYYY-MM-DD",
         timeFormat: "HH:mm:ss",
         time_24hr: true,
+        labelOpen: 'Open',
+        labelClosed: 'Closed',
         icons: {
             time: "icon-time",
             date: "icon-calendar",
@@ -23,6 +25,14 @@
     //Umbraco persists boolean for prevalues as "0" or "1" so we need to convert that
     $scope.model.config.time_24hr = Object.toBoolean($scope.model.config.time_24hr)
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
+
+    if ($scope.model.config.labelOpen.length === 0) {
+        $scope.model.config.labelOpen = 'Open'
+    }
+
+    if ($scope.model.config.labelClosed.length === 0) {
+        $scope.model.config.labelClosed = 'Closed'
+    }
 
     $scope.vm = {
         pickers: [],

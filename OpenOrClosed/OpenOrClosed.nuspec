@@ -25,7 +25,7 @@
     <tags>Umbraco Business Hours PropertyEditor</tags>
     <dependencies>
       <dependency id="UmbracoCMS" version="[8.6.0, )"></dependency>
-      <dependency id="OpenOrClosed.Core" version="[0.1.2]"></dependency>
+      <dependency id="OpenOrClosed.Core" version="[$version$]"></dependency>
     </dependencies>
   </metadata>
   <files>

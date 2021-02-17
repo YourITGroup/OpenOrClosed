@@ -26,11 +26,11 @@
     $scope.model.config.time_24hr = Object.toBoolean($scope.model.config.time_24hr)
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
 
-    if ($scope.model.config.labelOpen.length === 0) {
+    if (!$scope.model.config.labelOpen || $scope.model.config.labelOpen.length === 0) {
         $scope.model.config.labelOpen = 'Open'
     }
 
-    if ($scope.model.config.labelClosed.length === 0) {
+    if (!$scope.model.config.labelClosed || $scope.model.config.labelClosed.length === 0) {
         $scope.model.config.labelClosed = 'Closed'
     }
 
@@ -376,18 +376,19 @@
 
         // Set up the vm for each date.
         for (let i = 0; i < $scope.model.value.length; i++) {
-            var dateVm = createDateVm()
+            let dateVm = createDateVm()
             let date = getDateValue(i)
 
             // createDateVm automatically adds a default set of hours - we need to remove it.
             // We'll create a fresh one and populate it's values if needed further on.
             dateVm.hours.pop()
 
-            if (date.isOpen) {
-                dateVm.hasPickerValue = true
-                dateVm.pickerValue = date.date
+            dateVm.hasPickerValue = true
+            dateVm.pickerValue = date.date
 
-                for (var j = 0; j < date.hoursOfBusiness.length; j++) {
+            if (date.isOpen) {
+
+                for (let j = 0; j < date.hoursOfBusiness.length; j++) {
                     let timeVm = createHoursVm()
                     timeVm.opensAt.hasPickerValue = true
                     timeVm.opensAt.pickerValue = date.hoursOfBusiness[j].opensAt

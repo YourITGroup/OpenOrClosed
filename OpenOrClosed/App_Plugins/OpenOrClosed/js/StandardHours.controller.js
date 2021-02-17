@@ -25,11 +25,11 @@
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
     $scope.model.config.showBankHolidays = Object.toBoolean($scope.model.config.showBankHolidays)
 
-    if ($scope.model.config.labelOpen.length === 0) {
+    if (!$scope.model.config.labelOpen || $scope.model.config.labelOpen.length === 0) {
         $scope.model.config.labelOpen = 'Open'
     }
 
-    if ($scope.model.config.labelClosed.length === 0) {
+    if (!$scope.model.config.labelClosed || $scope.model.config.labelClosed.length === 0) {
         $scope.model.config.labelClosed = 'Closed'
     }
 
@@ -52,15 +52,15 @@
     }
 
     const daysoftheweek = [
-            { id: '764dc03a-6f77-4607-b7b6-f650200a39a5', dotw: 'Monday' },
-            { id: 'b138f333-b366-4f8a-891f-ea5d04e948b5', dotw: 'Tuesday' },
-            { id: '2238d1fa-4d27-4b37-a12a-173518d0d105', dotw: 'Wednesday' },
-            { id: '28020ef9-698a-4926-b5c4-b0a98fa15feb', dotw: 'Thursday' },
-            { id: '0f818d67-10a7-41ed-a2eb-ae5a4bbd213e', dotw: 'Friday' },
-            { id: '2667efc2-6747-4a2a-a758-f934b0ec6952', dotw: 'Saturday' },
-            { id: 'b3cc2ff7-ac75-47e8-a615-567f9d8f6b72', dotw: 'Sunday' },
-            { id: '587e1626-489e-4db2-99f7-a5efd599a59c', dotw: 'Bank Holidays' }
-        ];
+        { id: '764dc03a-6f77-4607-b7b6-f650200a39a5', dotw: 'Monday' },
+        { id: 'b138f333-b366-4f8a-891f-ea5d04e948b5', dotw: 'Tuesday' },
+        { id: '2238d1fa-4d27-4b37-a12a-173518d0d105', dotw: 'Wednesday' },
+        { id: '28020ef9-698a-4926-b5c4-b0a98fa15feb', dotw: 'Thursday' },
+        { id: '0f818d67-10a7-41ed-a2eb-ae5a4bbd213e', dotw: 'Friday' },
+        { id: '2667efc2-6747-4a2a-a758-f934b0ec6952', dotw: 'Saturday' },
+        { id: 'b3cc2ff7-ac75-47e8-a615-567f9d8f6b72', dotw: 'Sunday' },
+        { id: '587e1626-489e-4db2-99f7-a5efd599a59c', dotw: 'Bank Holidays' }
+    ];
 
     function createDay(index) {
         return {
@@ -262,10 +262,10 @@
 
         // Set up the vm for each one.
         for (let i = 0; i < dotwLength; i++) {
-            var dayVm = createDayVm()
+            let dayVm = createDayVm()
             let day = getDayValue(i)
             if (day.isOpen) {
-                for (var j = 0; j < day.hoursOfBusiness.length; j++) {
+                for (let j = 0; j < day.hoursOfBusiness.length; j++) {
                     let timeVm = createHoursVm()
 
                     timeVm.opensAt.hasPickerValue = true

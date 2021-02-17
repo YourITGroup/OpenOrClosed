@@ -1,6 +1,6 @@
 ﻿using Umbraco.Core.PropertyEditors;
 
-namespace OpenOrClosed.PropertyEditors
+namespace OpenOrClosed.Core.PropertyEditors
 {
     public class StandardHoursConfigurationEditor : ConfigurationEditor<StandardHoursConfiguration>
     {

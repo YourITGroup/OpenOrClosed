@@ -12,7 +12,7 @@
           ]]>
     </description>
     <summary>Adds Property Editors for Business Hours selection in Umbraco 8 with inspiration drawn from the Dexmoor.BusinessHours package for Umbraco 7</summary>
-    <copyright>Copyright 2020 Robert Foster</copyright>
+    <copyright>Copyright 2020-2021 Robert Foster</copyright>
     <projectUrl>https://github.com/YourITGroup/ConfigurationEditor</projectUrl>
     <language />
     <releaseNotes>

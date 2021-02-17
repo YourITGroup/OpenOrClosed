@@ -12,7 +12,7 @@
           ]]>
     </description>
     <summary>Provides Property Editors for OpenOrClosed.SpecialBusinessHours and OpenOrClosed.StandardBusinessHours Umbraco 8 PropertyEditors</summary>
-    <copyright>Copyright 2020 Robert Foster</copyright>
+    <copyright>Copyright 2020-2021 Robert Foster</copyright>
     <projectUrl>https://github.com/YourITGroup/ConfigurationEditor</projectUrl>
     <language />
     <releaseNotes>

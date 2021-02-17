@@ -25,13 +25,14 @@
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
     $scope.model.config.showBankHolidays = Object.toBoolean($scope.model.config.showBankHolidays)
 
-    if ($scope.model.config.labelOpen.length === 0) {
+    if (!$scope.model.config.labelOpen || $scope.model.config.labelOpen.length === 0) {
         $scope.model.config.labelOpen = 'Open'
     }
 
-    if ($scope.model.config.labelClosed.length === 0) {
+    if (!$scope.model.config.labelClosed || $scope.model.config.labelClosed.length === 0) {
         $scope.model.config.labelClosed = 'Closed'
     }
+
     $scope.vm = {
         pickers: [],
         openTimePickerConfig: {
@@ -261,10 +262,10 @@
 
         // Set up the vm for each one.
         for (let i = 0; i < dotwLength; i++) {
-            var dayVm = createDayVm()
+            let dayVm = createDayVm()
             let day = getDayValue(i)
             if (day.isOpen) {
-                for (var j = 0; j < day.hoursOfBusiness.length; j++) {
+                for (let j = 0; j < day.hoursOfBusiness.length; j++) {
                     let timeVm = createHoursVm()
 
                     timeVm.opensAt.hasPickerValue = true

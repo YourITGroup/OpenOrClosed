@@ -145,6 +145,14 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyEditors\AbstractHoursConfiguration.cs" />
+    <Compile Include="PropertyEditors\IHoursConfiguration.cs" />
+    <Compile Include="PropertyEditors\SpecialHoursConfiguration.cs" />
+    <Compile Include="PropertyEditors\SpecialHoursConfigurationEditor.cs" />
+    <Compile Include="PropertyEditors\SpecialHoursPropertyEditor.cs" />
+    <Compile Include="PropertyEditors\StandardHoursConfiguration.cs" />
+    <Compile Include="PropertyEditors\StandardHoursConfigurationEditor.cs" />
+    <Compile Include="PropertyEditors\StandardHoursPropertyEditor.cs" />
     <Compile Include="PropertyValueConverters\SpecialHoursConverter.cs" />
     <Compile Include="PropertyValueConverters\StandardHoursConverter.cs" />
     <Compile Include="ViewModels\DaysViewModel.cs" />

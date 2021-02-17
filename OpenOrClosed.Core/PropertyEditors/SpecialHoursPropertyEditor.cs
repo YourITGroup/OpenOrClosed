@@ -1,20 +1,18 @@
-﻿using OpenOrClosed.Core;
-using Umbraco.Core.Logging;
+﻿using Umbraco.Core.Logging;
 using Umbraco.Core.PropertyEditors;
 
-namespace OpenOrClosed.PropertyEditors
+namespace OpenOrClosed.Core.PropertyEditors
 {
     [DataEditor(
-        Constants.PropertyEditors.Aliases.SpecialHours,
-        EditorType.PropertyValue,
-        "Special Hours",
-        "~/App_Plugins/OpenOrClosed/views/specialHours.html",
+        alias: Constants.PropertyEditors.Aliases.SpecialHours,
+        name: "Special Business Hours",
+        view: "~/App_Plugins/OpenOrClosed/views/specialHours.html",
         Group = Umbraco.Core.Constants.PropertyEditors.Groups.RichContent,
         Icon = Constants.Icons.Time,
         ValueType = ValueTypes.Json)]
     public class SpecialHoursPropertyEditor : DataEditor
     {
-        public SpecialHoursPropertyEditor(ILogger logger, EditorType type = EditorType.PropertyValue) : base(logger, type)
+        public SpecialHoursPropertyEditor(ILogger logger) : base(logger)
         {
         }
 

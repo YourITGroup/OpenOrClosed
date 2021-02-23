@@ -13,4 +13,16 @@
   <area alias="validation">
     <key alias="invalidTime">Invalid time</key>
   </area>
+  <area alias="openOrClosed">
+    <key alias="open">Open</key>
+    <key alias="closed">Closed</key>
+    <key alias="monday">Monday</key>
+    <key alias="tuesday">Tuesday</key>
+    <key alias="wednesday">Wednesday</key>
+    <key alias="thursday">Thursday</key>
+    <key alias="friday">Friday</key>
+    <key alias="saturday">Saturday</key>
+    <key alias="sunday">Sunday</key>
+    <key alias="bankHoliday">Bank Holiday</key>
+  </area>
 </language>

@@ -1,4 +1,4 @@
-﻿function specialHoursController($scope, angularHelper, openOrClosedResource) {
+﻿function specialHoursController($scope, angularHelper, localizationService, openOrClosedResource) {
 
     // setup the default config
     const config = {
@@ -26,13 +26,26 @@
     $scope.model.config.time_24hr = Object.toBoolean($scope.model.config.time_24hr)
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
 
-    if (!$scope.model.config.labelOpen || $scope.model.config.labelOpen.length === 0) {
-        $scope.model.config.labelOpen = 'Open'
-    }
+    let labels = {}
 
-    if (!$scope.model.config.labelClosed || $scope.model.config.labelClosed.length === 0) {
-        $scope.model.config.labelClosed = 'Closed'
-    }
+    localizationService.localizeMany([
+        'openOrClosed_open',
+        'openOrClosed_closed'
+    ]
+    ).then(function (data) {
+        labels.open = data[0]
+        labels.closed = data[1]
+
+        // Now we can update our config.
+
+        if (!$scope.model.config.labelOpen || $scope.model.config.labelOpen.length === 0) {
+            $scope.model.config.labelOpen = labels.open
+        }
+
+        if (!$scope.model.config.labelClosed || $scope.model.config.labelClosed.length === 0) {
+            $scope.model.config.labelClosed = labels.closed
+        }
+    })
 
     $scope.vm = {
         pickers: [],
@@ -64,7 +77,7 @@
         return {
             date: null,
             isOpen: true,
-            id: openOrClosedResource.generateGuid(),
+//            id: openOrClosedResource.generateGuid(),
             hoursOfBusiness: [
                 createHours()
             ]
@@ -86,7 +99,7 @@
         return {
             opensAt: null,
             closesAt: null,
-            id: openOrClosedResource.generateGuid()
+//            id: openOrClosedResource.generateGuid()
         }
     }
 

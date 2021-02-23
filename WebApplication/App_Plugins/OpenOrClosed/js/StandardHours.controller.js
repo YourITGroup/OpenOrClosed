@@ -1,4 +1,4 @@
-﻿function standardHoursController($scope, angularHelper, openOrClosedResource) {
+﻿function standardHoursController($scope, angularHelper, localizationService, openOrClosedResource) {
 
     // setup the default config
     const config = {
@@ -10,6 +10,7 @@
         time_24hr: true,
         labelOpen: 'Open',
         labelClosed: 'Closed',
+        labelBankHolidays: 'Bank Holidays',
         icons: {
             time: "icon-time",
             up: "icon-chevron-up",
@@ -24,14 +25,6 @@
     $scope.model.config.time_24hr = Object.toBoolean($scope.model.config.time_24hr)
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
     $scope.model.config.showBankHolidays = Object.toBoolean($scope.model.config.showBankHolidays)
-
-    if (!$scope.model.config.labelOpen || $scope.model.config.labelOpen.length === 0) {
-        $scope.model.config.labelOpen = 'Open'
-    }
-
-    if (!$scope.model.config.labelClosed || $scope.model.config.labelClosed.length === 0) {
-        $scope.model.config.labelClosed = 'Closed'
-    }
 
     $scope.vm = {
         pickers: [],
@@ -49,23 +42,71 @@
             time_24hr: $scope.model.config.time_24hr,
             defaultDate: $scope.model.config.defaultClose,
         },
+        labels: {}
     }
 
-    const daysoftheweek = [
-            { id: '764dc03a-6f77-4607-b7b6-f650200a39a5', dotw: 'Monday' },
-            { id: 'b138f333-b366-4f8a-891f-ea5d04e948b5', dotw: 'Tuesday' },
-            { id: '2238d1fa-4d27-4b37-a12a-173518d0d105', dotw: 'Wednesday' },
-            { id: '28020ef9-698a-4926-b5c4-b0a98fa15feb', dotw: 'Thursday' },
-            { id: '0f818d67-10a7-41ed-a2eb-ae5a4bbd213e', dotw: 'Friday' },
-            { id: '2667efc2-6747-4a2a-a758-f934b0ec6952', dotw: 'Saturday' },
-            { id: 'b3cc2ff7-ac75-47e8-a615-567f9d8f6b72', dotw: 'Sunday' },
-            { id: '587e1626-489e-4db2-99f7-a5efd599a59c', dotw: 'Bank Holidays' }
-        ];
+    localizationService.localizeMany([
+        'openOrClosed_open',
+        'openOrClosed_closed',
+        'openOrClosed_monday',
+        'openOrClosed_tuesday',
+        'openOrClosed_wednesday',
+        'openOrClosed_thursday',
+        'openOrClosed_friday',
+        'openOrClosed_saturday',
+        'openOrClosed_sunday',
+        'openOrClosed_bankHoliday',
+    ]
+    ).then(function (data) {
+        $scope.vm.labels.open = data[0]
+        $scope.vm.labels.closed = data[1]
+        $scope.vm.labels.monday = data[2]
+        $scope.vm.labels.tuesday = data[3]
+        $scope.vm.labels.wednesday = data[4]
+        $scope.vm.labels.thursday = data[5]
+        $scope.vm.labels.friday = data[6]
+        $scope.vm.labels.saturday = data[7]
+        $scope.vm.labels.sunday = data[8]
+        $scope.vm.labels.bankHoliday = data[9]
+
+        // Now we can update our config and initialise the data.
+
+        if (!$scope.model.config.labelOpen || $scope.model.config.labelOpen.length === 0) {
+            $scope.model.config.labelOpen = $scope.vm.labels.open
+        }
+
+        if (!$scope.model.config.labelClosed || $scope.model.config.labelClosed.length === 0) {
+            $scope.model.config.labelClosed = $scope.vm.labels.closed
+        }
+
+        if (!$scope.model.config.labelBankHolidays || $scope.model.config.labelBankHolidays.length === 0) {
+            $scope.model.config.labelBankHolidays = $scope.vm.labels.bankHoliday
+        } else {
+            $scope.vm.labels.bankHoliday = $scope.model.config.labelBankHolidays
+        }
+
+        init()
+    })
+
+    //const daysoftheweek = [
+    //    { id: '764dc03a-6f77-4607-b7b6-f650200a39a5' },
+    //    { id: 'b138f333-b366-4f8a-891f-ea5d04e948b5' },
+    //    { id: '2238d1fa-4d27-4b37-a12a-173518d0d105' },
+    //    { id: '28020ef9-698a-4926-b5c4-b0a98fa15feb' },
+    //    { id: '0f818d67-10a7-41ed-a2eb-ae5a4bbd213e' },
+    //    { id: '2667efc2-6747-4a2a-a758-f934b0ec6952' },
+    //    { id: 'b3cc2ff7-ac75-47e8-a615-567f9d8f6b72' },
+    //    { id: '587e1626-489e-4db2-99f7-a5efd599a59c' }
+    //];
+
+    $scope.vm.getLabelByIndex = function(index) {
+        return Object.values($scope.vm.labels)[index]
+    }
 
     function createDay(index) {
         return {
-            id: daysoftheweek[index].id,
-            dayoftheweek: daysoftheweek[index].dotw,
+            //id: daysoftheweek[index].id,
+            dayoftheweek: $scope.vm.getLabelByIndex(index + 2),
             isOpen: false,
             hoursOfBusiness: [
             ]
@@ -76,7 +117,7 @@
         return {
             opensAt: null,
             closesAt: null,
-            id: openOrClosedResource.generateGuid()
+            //id: openOrClosedResource.generateGuid()
         }
     }
 
@@ -251,14 +292,18 @@
             }
         }
         else {
-            if ($scope.model.config.showBankHoliday && $scope.model.value.length === 8) {
+            if (!$scope.model.config.showBankHolidays && $scope.model.value.length === 8) {
                 $scope.model.value.pop()
             }
-            else if ($scope.model.config.showBankHoliday && $scope.model.value.length === 7) {
+            else if ($scope.model.config.showBankHolidays && $scope.model.value.length === 7) {
                 $scope.model.value.push(createDay(7))
             }
         }
 
+        // Fix up bank holiday label from config.
+        if ($scope.model.config.showBankHolidays) {
+            $scope.model.value[7].dayoftheweek = $scope.model.config.labelBankHolidays
+        }
 
         // Set up the vm for each one.
         for (let i = 0; i < dotwLength; i++) {
@@ -280,9 +325,6 @@
             $scope.vm.pickers.push(dayVm)
         }
     }
-
-    init()
-
 }
 
 angular.module('umbraco')

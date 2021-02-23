@@ -3,7 +3,7 @@
         <div ng-repeat="d in model.value">
             <div class="row date-row">
                 <div class="span2">
-                    <label>{{d.dayoftheweek}}</label>
+                    <label>{{vm.getLabelByIndex($index + 2)}}</label>
                 </div>
                 <div class="span1">
                     <umb-toggle checked="d.isOpen" on-click="toggleOpen($index)">

@@ -70,7 +70,7 @@
   <info>
     <package>
       <name>Open Or Closed</name>
-      <version>0.2.0</version>
+      <version>0.2.2</version>
       <iconUrl>https://raw.githubusercontent.com/YourITGroup/OpenOrClosed/master/assets/OpenOrClosed_logo.png</iconUrl>
       <license url="http://opensource.org/licenses/MIT">MIT License</license>
       <url>https://github.com/YourITGroup/OpenOrClosed</url>
@@ -87,7 +87,47 @@
     <contributors>
       <contributor>Robert Foster</contributor>
     </contributors>
-    <readme><![CDATA[Adds Property Editors for Business Hours selection in Umbraco 8 with inspiration drawn from the Dexmoor.BusinessHours package for Umbraco 7]]></readme>
+    <readme>
+  <![CDATA[
+<h2>Open or Closed - Yet another Business Hours package!</h2>
+<p>
+Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+
+</p>
+<p>
+There are two nuGet packages:
+</p>
+<ul>
+<li>OpenOrClosed - DataType Definitions and Property Editors for the Umbraco Back-Office</li>
+<li>OpenOrClosed.Core - PropertyValueConverters for use with ModelsBuilder to provide strongly typed models.</li>
+</ul>
+<p><br></p>
+<h3>Property Editors:</h3>
+<p>
+<strong>Standard Business Hours:</strong><br> Monday through to Sunday and optionally Bank Holidays, set each day Open or Closed with multiple ranges of times in either 24- or 12-hour time.  Each time range can be flagged with "By Appointment".
+</p>
+<p>
+<strong>Special Business Hours:</strong><br> Adds the ability to specify specific dates, with the same set of features for Standard Business Hours.
+</p>
+
+<h3>Change Log</h3>
+<ul>
+<li><b>Version 0.2.2</b> - *** Potential BREAKING Change ***
+  <ul>
+    <li>Changes the Hours from string to DateTime in the View Model to enable better localisation support.</li>
+  </ul>
+</li>
+<li><b>Version 0.2.1</b>
+  <ul>
+    <li>Removes the Id property from the View Models since it's no longer populated anyway.</li>
+  </ul>
+</li>
+<li><b>Version 0.2.0</b>
+  <ul>
+    <li>Removes the Id property from the editor as it's redundant</li>
+  </ul>
+</li>
+</ul>
+    ]]></readme>
   </info>
   <DocumentTypes />
   <Templates />

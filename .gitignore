@@ -392,3 +392,6 @@ FodyWeavers.xsd
 /Package
 !/Package/package.xml
 OpenOrClosed.*.zip
+/OpenOrClosed.UmbracoV8/App_Plugins/OpenOrClosed
+/OpenOrClosed.UmbracoV9/umbraco
+/OpenOrClosed.UmbracoV9/wwwroot/umbraco

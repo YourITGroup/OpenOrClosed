@@ -1,6 +1,12 @@
-﻿using OpenOrClosed.Core;
+﻿#if NET5_0_OR_GREATER
+using Umbraco.Cms.Core.IO;
+using Umbraco.Cms.Core.PropertyEditors;
+using UmbConstants = Umbraco.Cms.Core.Constants;
+#else
 using Umbraco.Core.Logging;
 using Umbraco.Core.PropertyEditors;
+using UmbConstants = Umbraco.Core.Constants;
+#endif
 
 namespace OpenOrClosed.Core.PropertyEditors
 {
@@ -8,16 +14,26 @@ namespace OpenOrClosed.Core.PropertyEditors
         alias: Constants.PropertyEditors.Aliases.StandardHours,
         name: "Standard Business Hours",
         view: "~/App_Plugins/OpenOrClosed/views/standardHours.html",
-        Group = Umbraco.Core.Constants.PropertyEditors.Groups.RichContent,
+        Group = UmbConstants.PropertyEditors.Groups.RichContent,
         Icon = Constants.Icons.Time,
         ValueType = ValueTypes.Json)]
     public class StandardHoursPropertyEditor : DataEditor
     {
+#if NET5_0_OR_GREATER
+
+        private readonly IIOHelper _ioHelper;
+        public StandardHoursPropertyEditor(IIOHelper ioHelper, IDataValueEditorFactory dataValueEditorFactory, EditorType type = EditorType.PropertyValue) : base(dataValueEditorFactory, type)
+        {
+            _ioHelper = ioHelper;
+        }
+
+        protected override IConfigurationEditor CreateConfigurationEditor() => new StandardHoursConfigurationEditor(_ioHelper);
+#else
         public StandardHoursPropertyEditor(ILogger logger) : base(logger)
         {
         }
 
         protected override IConfigurationEditor CreateConfigurationEditor() => new StandardHoursConfigurationEditor();
-
+#endif
     }
 }

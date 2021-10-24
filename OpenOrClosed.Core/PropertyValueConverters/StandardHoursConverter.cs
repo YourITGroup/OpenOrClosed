@@ -1,32 +1,25 @@
 ﻿#if NET5_0_OR_GREATER
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
-using System.Text.Json;
 #else
-using Newtonsoft.Json;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.PropertyEditors;
 #endif
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using OpenOrClosed.Core.ViewModels;
 
 namespace OpenOrClosed.Core.PropertyValueConverters
 {
     public class StandardHoursConverter : PropertyValueConverterBase
     {
-#if NET5_0_OR_GREATER
-        JsonSerializerOptions jsonOptions = new JsonSerializerOptions()
-        {
-            PropertyNameCaseInsensitive = true,
-        };
-#endif
-
         public override bool IsConverter(IPublishedPropertyType propertyType)
             => Constants.PropertyEditors.Aliases.StandardHours == propertyType.EditorAlias;
 
         public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
-            => typeof(IEnumerable<ViewModels.DaysViewModel>);
+            => typeof(IEnumerable<DaysViewModel>);
 
         public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
             => PropertyCacheLevel.Element;
@@ -36,14 +29,33 @@ namespace OpenOrClosed.Core.PropertyValueConverters
             var sourceString = source?.ToString();
             if (string.IsNullOrWhiteSpace(sourceString))
             {
-                return Enumerable.Empty<ViewModels.DaysViewModel>();
+                return Enumerable.Empty<DaysViewModel>();
             }
-#if NET5_0_OR_GREATER
+            var data = JsonConvert.DeserializeObject<IEnumerable<DaysViewModel>>(sourceString);
 
-            var data = JsonSerializer.Deserialize<IEnumerable<ViewModels.DaysViewModel>>(sourceString, jsonOptions);
-#else
-			var data = JsonConvert.DeserializeObject<IEnumerable<ViewModels.DaysViewModel>>(sourceString);
-#endif
+            //// Go through and adjust the dates for each set of hours.
+            //foreach (var day in data)
+            //{
+            //    if (day.IsOpen)
+            //    {
+            //        if (!Enum.TryParse(day.DayOfTheWeek, true, out DayOfTheWeek dotw))
+            //        {
+            //            dotw = DayOfTheWeek.PublicHolidays;
+            //        }
+
+            //        switch(dotw)
+            //        {
+            //            case DayOfTheWeek.PublicHolidays:
+            //        }
+
+            //        foreach (var hours in day.HoursOfBusiness)
+            //        {
+            //            hours.OpensAt = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, hours.OpensAt.Hour, hours.OpensAt.Minute, hours.OpensAt.Second);
+            //            hours.ClosesAt = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, hours.ClosesAt.Hour, hours.ClosesAt.Minute, hours.ClosesAt.Second);
+            //        }
+            //    }
+            //}
+
             return data;
         }
     }

@@ -8,7 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="OpenOrClosed" Version="1.0.0-prerelease" />
         <PackageReference Include="Umbraco.Cms" Version="9.0.1" />
         <PackageReference Include="Umbraco.Cms.SqlCe" Version="9.0.1" />
         <PackageReference Include="Umbraco.SqlServerCE" Version="4.0.0.1" />
@@ -27,8 +26,36 @@
 
 
     <ItemGroup>
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\css\OpenOrClosed.css" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\js\OpenOrClosed.resource.js" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\js\SpecialHours.controller.js" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\js\StandardHours.controller.js" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\js\TimePicker.controller.js" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\lang\en-US.xml" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\package.manifest" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\views\prevalues\timeformat.html" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\views\specialHours.html" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\views\standardHours.html" />
+      <Content Remove="C:\Users\youri\.nuget\packages\openorclosed\1.0.0-rc2\contentFiles\any\net5.0\App_Plugins\OpenOrClosed\views\timepicker.html" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
       <None Include="umbraco\Data\Umbraco.mdf" />
       <None Include="umbraco\Data\Umbraco_log.ldf" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <Folder Include="App_Plugins\" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\OpenOrClosed.Core\OpenOrClosed.Core.csproj" />
     </ItemGroup>
 
     <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto-->
@@ -36,5 +63,8 @@
         <RazorCompileOnBuild>false</RazorCompileOnBuild>
         <RazorCompileOnPublish>false</RazorCompileOnPublish>
     </PropertyGroup>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="xcopy $(SolutionDir)OpenOrClosed\App_Plugins\OpenOrClosed\*.* $(ProjectDir)App_Plugins\OpenOrClosed\ /S /E /Y" />
+	</Target>
 
 </Project>

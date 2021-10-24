@@ -81,15 +81,20 @@
                             </umb-date-time-picker>
                         </span>
 
-                        <button type="button" class="umb-node-preview__action umb-node-preview__action--red ng-scope"
+                        <button type="button" class="umb-node-preview__action umb-node-preview__action--red"
                                 title="Remove Hours"
                                 ng-click="deleteHours($index, $parent.$index)">
                             <localize key="content_deleteHours">Remove hours</localize>
                         </button>
 
-                        <div ng-show="model.config.appointmentOnlyBoolean">
-                            <label>Appointment only</label>
-                            <umb-toggle checked="h.byAppointmentOnly" on-click="toggleByAppointmentOnly(h)">
+                        <div ng-show="model.config.showAppointmentOnly">
+                            <umb-toggle 
+                                checked="h.byAppointmentOnly" 
+                                on-click="toggleByAppointmentOnly(h)"
+                                show-labels="true"
+                                label-position="right"
+                                label-off="{{vm.labels.unrestricted}}"
+                                label-on="{{vm.labels.appointmentOnly}}">
                             </umb-toggle>
                         </div>
                     </div>
@@ -97,7 +102,7 @@
                         <localize key="content_addHours">Add hours</localize>
                     </button>
                 </div>
-                <button type="button" class="umb-node-preview__action umb-node-preview__action--red ng-scope"
+                <button type="button" class="umb-node-preview__action umb-node-preview__action--red"
                         title="Remove Date"
                         ng-click="deleteDate($index)">
                     <localize key="content_deleteDate">Remove date</localize>

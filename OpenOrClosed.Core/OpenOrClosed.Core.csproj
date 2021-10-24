@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<TargetFrameworks>net5.0;net472</TargetFrameworks>
-	<Version>1.0.0-rc1</Version>
+	<Version>1.0.0</Version>
 	<Description>
 	Open or Closed - Yet another Business Hours package!
 
@@ -66,6 +66,10 @@
 		<PackageReference Include="Umbraco.Cms.Web.Common">
 		  <Version>9.0.0</Version>
 		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="ViewModels\DayOfTheWeek.cs" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="..\GithubFiles\Logo\OpenOrClosed_logo.png">

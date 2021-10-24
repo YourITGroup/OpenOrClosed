@@ -18,12 +18,12 @@
                            ng-required="model.validation.mandatory"
                            val-server="value"
                            class="datepickerinput">
-                    <button type="button" class="on-top" ng-click="clearDate()" ng-show="hasDatetimePickerValue === true || timePickerForm.timepicker.$error.pickerError === true">
-                        <i class="icon-delete" aria-hidden="true"></i>
-                        <span class="sr-only"><localize key="content_removeDate">Clear time</localize></span>
-                    </button>
                     <span class="add-on" aria-hidden="true">
                         <i class="icon-time"></i>
+                    </span>
+                    <span class="add-on" ng-click="clearDate($event)" ng-show="hasDatetimePickerValue === true || timePickerForm.timepicker.$error.pickerError === true">
+                        <i class="icon-delete" aria-hidden="true"></i>
+                        <span class="sr-only"><localize key="content_clearTime">Clear time</localize></span>
                     </span>
                 </div>
 

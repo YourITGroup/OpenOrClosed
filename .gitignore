@@ -395,3 +395,6 @@ OpenOrClosed.*.zip
 /OpenOrClosed.UmbracoV8/App_Plugins/OpenOrClosed
 /OpenOrClosed.UmbracoV9/umbraco
 /OpenOrClosed.UmbracoV9/wwwroot/umbraco
+/OpenOrClosed.UmbracoV8/Umbraco
+/OpenOrClosed.UmbracoV8/App_Data
+/OpenOrClosed.UmbracoV9/App_Plugins/OpenOrClosed

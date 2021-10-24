@@ -1,4 +1,4 @@
-﻿function specialHoursController($scope, angularHelper, localizationService, openOrClosedResource) {
+﻿function specialHoursController($scope, angularHelper, localizationService) {
 
     // setup the default config
     const config = {
@@ -26,27 +26,6 @@
     $scope.model.config.time_24hr = Object.toBoolean($scope.model.config.time_24hr)
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
 
-    let labels = {}
-
-    localizationService.localizeMany([
-        'openOrClosed_open',
-        'openOrClosed_closed'
-    ]
-    ).then(function (data) {
-        labels.open = data[0]
-        labels.closed = data[1]
-
-        // Now we can update our config.
-
-        if (!$scope.model.config.labelOpen || $scope.model.config.labelOpen.length === 0) {
-            $scope.model.config.labelOpen = labels.open
-        }
-
-        if (!$scope.model.config.labelClosed || $scope.model.config.labelClosed.length === 0) {
-            $scope.model.config.labelClosed = labels.closed
-        }
-    })
-
     $scope.vm = {
         pickers: [],
         datePickerConfig: {
@@ -67,7 +46,31 @@
             time_24hr: $scope.model.config.time_24hr,
             defaultDate: $scope.model.config.defaultClose,
         },
+        labels: {}
     }
+
+    localizationService.localizeMany([
+        'openOrClosed_open',
+        'openOrClosed_closed',
+        'openOrClosed_unrestricted',
+        'openOrClosed_appointmentOnly'
+    ]
+    ).then(function (data) {
+        $scope.vm.labels.open = data[0]
+        $scope.vm.labels.closed = data[1]
+        $scope.vm.labels.unrestricted = data[2]
+        $scope.vm.labels.appointmentOnly = data[3]
+
+        // Now we can update our config.
+
+        if (!$scope.model.config.labelOpen || $scope.model.config.labelOpen.length === 0) {
+            $scope.model.config.labelOpen = $scope.vm.labels.open
+        }
+
+        if (!$scope.model.config.labelClosed || $scope.model.config.labelClosed.length === 0) {
+            $scope.model.config.labelClosed = $scope.vm.labels.closed
+        }
+    })
 
     if (!$scope.model.value) {
         $scope.model.value = [];
@@ -77,7 +80,6 @@
         return {
             date: null,
             isOpen: true,
-//            id: openOrClosedResource.generateGuid(),
             hoursOfBusiness: [
                 createHours()
             ]
@@ -98,8 +100,7 @@
     function createHours() {
         return {
             opensAt: null,
-            closesAt: null,
-//            id: openOrClosedResource.generateGuid()
+            closesAt: null
         }
     }
 

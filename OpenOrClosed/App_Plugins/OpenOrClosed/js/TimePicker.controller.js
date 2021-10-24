@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function timePickerController($scope, angularHelper, dateHelper, validationMessageService) {
+    function timePickerController($scope, angularHelper, validationMessageService) {
 
         let flatPickr = null;
 
@@ -49,7 +49,9 @@
             });
         }
 
-        $scope.clearDate = function () {
+        $scope.clearDate = function ($event) {
+            $event.stopPropagation();
+            $event.preventDefault();
             $scope.hasDatetimePickerValue = false;
             if ($scope.model) {
                 $scope.model.datetimePickerValue = null;

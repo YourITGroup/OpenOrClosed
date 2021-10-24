@@ -1,5 +1,8 @@
-﻿using Umbraco.Core.PropertyEditors;
-
+﻿#if NET5_0_OR_GREATER
+using Umbraco.Cms.Core.PropertyEditors;
+#else
+using Umbraco.Core.PropertyEditors;
+#endif
 namespace OpenOrClosed.Core.PropertyEditors
 {
     public class SpecialHoursConfiguration : AbstractHoursConfiguration

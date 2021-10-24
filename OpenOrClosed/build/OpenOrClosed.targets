@@ -1,0 +1,28 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<OpenOrClosedContentFilesPath>$(MSBuildThisFileDirectory)..\content\App_Plugins\OpenOrClosed\**\*.*</OpenOrClosedContentFilesPath>
+	</PropertyGroup>
+
+	<Target Name="CopyOpenOrClosedAssets" BeforeTargets="Build">
+		<ItemGroup>
+			<OpenOrClosedContentFiles Include="$(OpenOrClosedContentFilesPath)" />
+			<OpenOrClosedRazorFiles Include="$(OpenOrClosedRazorFilesPath)" />
+		</ItemGroup>
+		<Message Text="Copying OpenOrClosed Plugin files: $(OpenOrClosedContentFilesPath) - #@(OpenOrClosedContentFiles->Count()) files"  Importance="high" />
+		<Copy
+				SourceFiles="@(OpenOrClosedContentFiles)"
+				DestinationFiles="@(OpenOrClosedContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\OpenOrClosed\%(RecursiveDir)%(Filename)%(Extension)')"
+				SkipUnchangedFiles="true" />
+				
+	</Target>
+
+	<Target Name="CleanOpenOrClosedAssets" BeforeTargets="Clean">
+		<ItemGroup>
+			<OpenOrClosedDir Include="$(MSBuildProjectDirectory)\App_Plugins\OpenOrClosed\" />
+		</ItemGroup>
+		<Message Text="Clean old OpenOrClosed plugin files" Importance="high" />
+		<RemoveDir Directories="@(OpenOrClosedDir)"  />
+	</Target>
+
+</Project>

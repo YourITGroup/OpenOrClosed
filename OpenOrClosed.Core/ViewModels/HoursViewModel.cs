@@ -1,18 +1,18 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace OpenOrClosed.Core.ViewModels
 {
+    [DataContract]
     public class HoursViewModel
     {
-        //public Guid Id { get; set; }
-        [JsonProperty("opensAt")]
+        [DataMember(Name = "opensAt")]
         public DateTime OpensAt { get; set; }
 
-        [JsonProperty("closesAt")]
+        [DataMember(Name = "closesAt")]
         public DateTime ClosesAt { get; set; }
 
-        [JsonProperty("byAppointmentOnly")]
+        [DataMember(Name = "byAppointmentOnly")]
         public bool ByAppointmentOnly { get; set; } = false;
     }
 }

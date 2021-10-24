@@ -1,19 +1,18 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace OpenOrClosed.Core.ViewModels
 {
+    [DataContract]
     public class DaysViewModel
     {
-        //public Guid Id { get; set; }
-        [JsonProperty("dayOfTheWeek")]
+        [DataMember(Name = "dayOfTheWeek")]
         public string DayOfTheWeek { get; set; }
 
-        [JsonProperty("isOpen")]
+        [DataMember(Name = "isOpen")]
         public bool IsOpen { get; set; }
-        
-        [JsonProperty("hoursOfBusiness")]
+
+        [DataMember(Name = "hoursOfBusiness")]
         public List<HoursViewModel> HoursOfBusiness { get; set; }
     }
 }

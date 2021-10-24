@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30503.244
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed", "OpenOrClosed\OpenOrClosed.csproj", "{63D4C892-183E-4D06-85E6-694828540663}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{E2CE8EFF-919A-46CF-9F6A-3D33EBF9DAFB}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
@@ -15,9 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{36DD
 		Package\package.xml = Package\package.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed.Core", "OpenOrClosed.Core\OpenOrClosed.Core.csproj", "{5D3E2997-5543-4E12-964D-0DB644C051A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed", "OpenOrClosed\OpenOrClosed.csproj", "{E3F218DA-1E12-46D2-B831-02738165068E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{018B5756-1DE0-4460-84A0-142F4AFB38E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed.Core", "OpenOrClosed.Core\OpenOrClosed.Core.csproj", "{CD61298A-317E-4554-9B59-80F74904B758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed.UmbracoV8", "OpenOrClosed.UmbracoV8\OpenOrClosed.UmbracoV8.csproj", "{018B5756-1DE0-4460-84A0-142F4AFB38E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed.UmbracoV9", "OpenOrClosed.UmbracoV9\OpenOrClosed.UmbracoV9.csproj", "{F29D01D7-384E-4976-9375-7E8704E1C721}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,18 +27,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{63D4C892-183E-4D06-85E6-694828540663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63D4C892-183E-4D06-85E6-694828540663}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63D4C892-183E-4D06-85E6-694828540663}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63D4C892-183E-4D06-85E6-694828540663}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D3E2997-5543-4E12-964D-0DB644C051A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D3E2997-5543-4E12-964D-0DB644C051A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D3E2997-5543-4E12-964D-0DB644C051A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D3E2997-5543-4E12-964D-0DB644C051A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3F218DA-1E12-46D2-B831-02738165068E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3F218DA-1E12-46D2-B831-02738165068E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3F218DA-1E12-46D2-B831-02738165068E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3F218DA-1E12-46D2-B831-02738165068E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD61298A-317E-4554-9B59-80F74904B758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD61298A-317E-4554-9B59-80F74904B758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD61298A-317E-4554-9B59-80F74904B758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD61298A-317E-4554-9B59-80F74904B758}.Release|Any CPU.Build.0 = Release|Any CPU
 		{018B5756-1DE0-4460-84A0-142F4AFB38E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{018B5756-1DE0-4460-84A0-142F4AFB38E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{018B5756-1DE0-4460-84A0-142F4AFB38E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{018B5756-1DE0-4460-84A0-142F4AFB38E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F29D01D7-384E-4976-9375-7E8704E1C721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F29D01D7-384E-4976-9375-7E8704E1C721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F29D01D7-384E-4976-9375-7E8704E1C721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F29D01D7-384E-4976-9375-7E8704E1C721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

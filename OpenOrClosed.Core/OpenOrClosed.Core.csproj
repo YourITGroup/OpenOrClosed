@@ -23,7 +23,7 @@
 	<Company>Your IT Group</Company>
 	<Product>OpenOrClosed Core dll for Umbraco 8 &amp; 9</Product>
 	<Authors>Robert Foster</Authors>
-	<Copyright>Copyright © 2021</Copyright>
+	<Copyright>Copyright © Your IT Group 2021</Copyright>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 	<PackageIcon>OpenOrClosed_logo.png</PackageIcon>

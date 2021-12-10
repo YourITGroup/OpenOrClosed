@@ -17,10 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - run: echo "${{ secrets.NUGET_API_KEY }}".Length
-      env:
-        apiKey: ${{ secrets.NUGET_API_KEY }}
-        
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
 
@@ -40,7 +36,7 @@ jobs:
       run: msbuild ${{ env.SOLUTION }} -p:Configuration=Release -p:GeneratePackageOnBuild=true -p:PackageOutputPath=${{ env.OUTPUT_PATH }}
       
     - name: Publish ${{ env.PACKAGE_NAME }} to NuGet
-      run: dotnet nuget push "${{ env.OUTPUT_PATH }}\*.nupkg" --skip-duplicate -n -k "$env:apiKey" -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push "${{ env.OUTPUT_PATH }}\*.nupkg" --skip-duplicate --api-key "$env:apiKey" -s https://api.nuget.org/v3/index.json
       env:
         apiKey: ${{ secrets.NUGET_API_KEY }}
 

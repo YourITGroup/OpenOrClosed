@@ -36,7 +36,7 @@ jobs:
       run: msbuild ${{ env.SOLUTION }} -p:Configuration=Release -p:GeneratePackageOnBuild=true -p:PackageOutputPath=${{ env.OUTPUT_PATH }}
 
     - name: Publish ${{ env.PACKAGE_NAME }} to NuGet
-      run: dotnet nuget push "${{ env.OUTPUT_PATH }}\*.nupkg" --skip-duplicate -n -k "${{ env.apiKey }}" -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push "${{ env.OUTPUT_PATH }}\*.nupkg" --skip-duplicate -n -k "$env:apiKey" -s https://api.nuget.org/v3/index.json
       env:
         apiKey: ${{ secrets.NUGET_API_KEY }}
 

@@ -13,13 +13,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{36DD
 		Package\package.xml = Package\package.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed", "OpenOrClosed\OpenOrClosed.csproj", "{E3F218DA-1E12-46D2-B831-02738165068E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenOrClosed", "OpenOrClosed\OpenOrClosed.csproj", "{E3F218DA-1E12-46D2-B831-02738165068E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed.Core", "OpenOrClosed.Core\OpenOrClosed.Core.csproj", "{CD61298A-317E-4554-9B59-80F74904B758}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenOrClosed.Core", "OpenOrClosed.Core\OpenOrClosed.Core.csproj", "{CD61298A-317E-4554-9B59-80F74904B758}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed.UmbracoV8", "OpenOrClosed.UmbracoV8\OpenOrClosed.UmbracoV8.csproj", "{018B5756-1DE0-4460-84A0-142F4AFB38E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenOrClosed.UmbracoV9", "OpenOrClosed.UmbracoV9\OpenOrClosed.UmbracoV9.csproj", "{F29D01D7-384E-4976-9375-7E8704E1C721}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenOrClosed.UmbracoV9", "OpenOrClosed.UmbracoV9\OpenOrClosed.UmbracoV9.csproj", "{F29D01D7-384E-4976-9375-7E8704E1C721}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{5064D0BE-331E-4171-B175-EDD15B1B3D4F}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,11 +44,9 @@ Global
 		{018B5756-1DE0-4460-84A0-142F4AFB38E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{018B5756-1DE0-4460-84A0-142F4AFB38E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{018B5756-1DE0-4460-84A0-142F4AFB38E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{018B5756-1DE0-4460-84A0-142F4AFB38E2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F29D01D7-384E-4976-9375-7E8704E1C721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F29D01D7-384E-4976-9375-7E8704E1C721}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F29D01D7-384E-4976-9375-7E8704E1C721}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F29D01D7-384E-4976-9375-7E8704E1C721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -22,15 +22,15 @@
 		<Product>OpenOrClosed for Umbraco 8 &amp; 9</Product>
 		<Authors>Robert Foster</Authors>
 		<Copyright>Copyright © 2021</Copyright>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 		<PackageIcon>OpenOrClosed_logo.png</PackageIcon>
 		<PackageIconUrl>https://raw.githubusercontent.com/YourITGroup/OpenOrClosed/master/assets/OpenOrClosed_logo.png</PackageIconUrl>
 		<RepositoryUrl>https://github.com/YourITGroup/OpenOrClosed</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>Umbraco Business Hours Umbraco8 Umbraco9 Datatype dotnetcore dotnet5</PackageTags>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.0</FileVersion>
+		<AssemblyVersion>1.0.0.1</AssemblyVersion>
+		<FileVersion>1.0.0.1</FileVersion>
 		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
 		<PackageReleaseNotes>Now multi-targeting Umbraco 8 and 9</PackageReleaseNotes>
 		<PackageReadmeFile>README.nuget.md</PackageReadmeFile>
@@ -72,15 +72,6 @@
 			<PackagePath>build</PackagePath>
 		</None>
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Remove="App_Plugins\OpenOrClosed\js\OpenOrClosed.resource.js" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="App_Plugins\OpenOrClosed\js\OpenOrClosed.resource.js" />
-	</ItemGroup>
-
 
 	<ItemGroup>
 	  <ProjectReference Include="..\OpenOrClosed.Core\OpenOrClosed.Core.csproj" />

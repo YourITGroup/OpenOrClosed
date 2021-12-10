@@ -1,7 +1,6 @@
 name: OpenOrClosed - CI
 
 on:
-  - push
   - pull_request
 
 env:

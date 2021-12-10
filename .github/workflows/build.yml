@@ -1,7 +1,9 @@
 name: OpenOrClosed - CI
 
 on:
-  - pull_request
+  push: 
+    branches: [ master ]
+  pull_request:
 
 env:
   SOLUTION: OpenOrClosed.sln

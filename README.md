@@ -4,6 +4,9 @@
 
 Yet another Business Hours package supporting Umbraco 8.6+
 
+[![OpenOrClosed - CI](https://github.com/YourITGroup/OpenOrClosed/actions/workflows/build.yml/badge.svg)](https://github.com/YourITGroup/OpenOrClosed/actions/workflows/build.yml)
+[![OpenOrClosed - Release](https://github.com/YourITGroup/OpenOrClosed/actions/workflows/release.yml/badge.svg)](https://github.com/YourITGroup/OpenOrClosed/actions/workflows/release.yml)
+
 Nuget Packages:
 
 | Package | Version | Downloads |

@@ -45,9 +45,9 @@ jobs:
       with:
         file: ${{ env.PLUGIN_PROJECT }}
         
-    - run: echo v${{ steps.package_version.version }}
+    - run: echo v${{ steps.package_version.outputs.version }}
 
     - name: Create Release Tag
       run: |
-        git tag -m "CI: create new tag" v${{ steps.package_version.version }}
-        git push origin v${{ steps.package_version.version }}
+        git tag -m "CI: create new tag" v${{ steps.package_version.outputs.version }}
+        git push origin v${{ steps.package_version.outputs.version }}

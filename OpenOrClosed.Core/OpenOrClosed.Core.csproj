@@ -31,8 +31,6 @@
 	<RepositoryUrl>https://github.com/YourITGroup/OpenOrClosed</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
 	<PackageTags>Umbraco Business Hours Umbraco8 Umbraco9 Datatype dotnetcore dotnet5</PackageTags>
-	<AssemblyVersion>1.0.1.0</AssemblyVersion>
-	<FileVersion>1.0.1.0</FileVersion>
 	<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
 	<PackageReleaseNotes>Now multi-targeting Umbraco 8 and 9</PackageReleaseNotes>
 	<PackageReadmeFile>README.nuget.md</PackageReadmeFile>

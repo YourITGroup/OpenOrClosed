@@ -44,10 +44,17 @@ jobs:
       uses: KageKirin/get-csproj-version@v0
       with:
         file: ${{ env.PLUGIN_PROJECT }}
-        
-    - run: echo v${{ steps.package_version.outputs.version }}
 
-    - name: Create Release Tag
+    - uses: avakar/tag-and-release@v1
+      name: Create Release Tag v${{ steps.package_version.outputs.version }}
+      id: release
+      with:
+        tag_name: v${{ steps.package_version.outputs.version }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Release information for v${{ steps.package_version.outputs.version }}
       run: |
-        git tag -m "CI: create new tag" v${{ steps.package_version.outputs.version }}
-        git push origin v${{ steps.package_version.outputs.version }}
+        echo Release Id: ${{ steps.release.outputs.id }}
+        echo Upload URL: ${{ steps.release.outputs.upload_url }}
+        echo Release URL: ${{ steps.release.outputs.html_url }}

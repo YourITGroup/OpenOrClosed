@@ -48,12 +48,7 @@ jobs:
 
     - name: Check Version v${{ steps.package_version.outputs.version }} Pre Release state
       id: check_prerelease
-      run: |
-        if ($VERSION -match '^[0-9]+\.[0-9]+\.[0-9]+-.+$') {
-          echo ::set-output name=prerelease::true
-        } else {
-            echo ::set-output name=prerelease::false
-        }
+      run: echo ::set-output name=prerelease::($VERSION -match '^[0-9]+\.[0-9]+\.[0-9]+-.+$')
       env:
         VERSION: ${{ steps.package_version.outputs.version }}
 

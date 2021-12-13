@@ -41,9 +41,10 @@ jobs:
 
     - name: Get Release Version
       id: package_version
-      uses: KageKirin/get-csproj-version@v0
+      uses: KageKirin/get-csproj-version@v0.0.1
       with:
         file: ${{ env.PLUGIN_PROJECT }}
+        regex: ^(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(?<patch>0|[1-9]\d*)(?:-(?<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
 
     - name: Check Version v${{ steps.package_version.outputs.version }} Pre Release state
       id: check_prerelease

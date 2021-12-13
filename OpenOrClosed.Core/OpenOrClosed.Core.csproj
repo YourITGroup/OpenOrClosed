@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<TargetFrameworks>net5.0;net472</TargetFrameworks>
-	<Version>1.0.1</Version>
+	<Version>1.0.1-pre</Version>
 	<Description>
 	Open or Closed - Yet another Business Hours package!
 

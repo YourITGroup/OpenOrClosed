@@ -45,16 +45,26 @@ jobs:
       with:
         file: ${{ env.PLUGIN_PROJECT }}
 
+    - name: Check Version v${{ steps.package_version.outputs.version }} Pre Release state
+      id: check_prerelease
+      run: |
+        if [[ ${{ steps.package_version.outputs.version }} =~ ^v[0-9]+\.[0-9]+\.[0-9]+-.+$ ]]; then
+          echo ::set-output name=prerelease::true
+        else
+            echo ::set-output name=prerelease::false
+        fi
+
     - uses: avakar/tag-and-release@v1
       name: Create Release Tag v${{ steps.package_version.outputs.version }}
       id: release
       with:
         tag_name: v${{ steps.package_version.outputs.version }}
+        prerelease: ${{ steps.check_prerelease.outputs.prerelease }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Release information for v${{ steps.package_version.outputs.version }}
       run: |
         echo Release Id: ${{ steps.release.outputs.id }}
-        echo Upload URL: ${{ steps.release.outputs.upload_url }}
-        echo Release URL: ${{ steps.release.outputs.html_url }}
+        echo Upload URL: "${{ steps.release.outputs.upload_url }}"
+        echo Release URL: "${{ steps.release.outputs.html_url }}"

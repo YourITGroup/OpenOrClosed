@@ -27,17 +27,11 @@ jobs:
       id: check_prerelease
       run: |
         if ('${{ steps.package_version.outputs.version }}' -match '^[0-9]+\.[0-9]+\.[0-9]+-.+$') {
+            echo "Pre-Release detected"
             echo "::set-output name=prerelease::true"
         } else {
+            "echo Pre-Release NOT detected"
             echo "::set-output name=prerelease::false"
-        }
-
-    - name: Pre-Release Detection Result
-      run: |
-        if (${{ steps.check_prerelease.outputs.prerelease }}) {
-            echo Pre-Release detected
-        } else {
-            echo Pre-Release NOT detected
         }
     
     - name: Setup MSBuild

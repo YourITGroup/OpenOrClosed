@@ -54,8 +54,14 @@ jobs:
         } else {
             echo ::set-output name=prerelease::false
         }
-      env:
-        VERSION: ${{ steps.package_version.outputs.version }}
+
+    - name: Prelease Detection Result
+      run: |
+        if (${{ steps.check_prerelease.outputs.prerelease }}) {
+            echo PreRelease detected
+        } else {
+            echo PreRelease NOT detected
+        }
 
     - uses: avakar/tag-and-release@v1
       name: Create Release Tag v${{ steps.package_version.outputs.version }}

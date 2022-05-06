@@ -10,7 +10,7 @@
 		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
 		<DebugType>none</DebugType>
 
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 		<Description>Open or Closed - Yet another Business Hours package!
 
 Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+
@@ -29,7 +29,7 @@ Adds the ability to specify specific dates, with the same set of features for St
 		<Company>Your IT Group</Company>
 		<Product>$(AssemblyName) for Umbraco 8 &amp; 9</Product>
 		<Authors>Robert Foster</Authors>
-		<Copyright>Copyright © 2021</Copyright>
+		<Copyright>Copyright © 2022</Copyright>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 		<PackageIcon>OpenOrClosed_logo.png</PackageIcon>
@@ -74,6 +74,11 @@ Adds the ability to specify specific dates, with the same set of features for St
 		<None Include="build\**\*.*">
 			<Pack>True</Pack>
 			<PackagePath>buildTransitive</PackagePath>
+		</None>
+
+		<None Include="build\**\*.*">
+			<Pack>True</Pack>
+			<PackagePath>build</PackagePath>
 		</None>
 	</ItemGroup>
 

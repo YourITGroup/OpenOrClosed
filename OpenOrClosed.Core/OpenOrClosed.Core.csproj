@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<TargetFrameworks>net5.0;net472</TargetFrameworks>
-	<Version>1.0.2</Version>
+	<Version>1.0.3</Version>
 	<Description>
 	Open or Closed - Yet another Business Hours package!
 
@@ -23,7 +23,7 @@
 	<Company>Your IT Group</Company>
 	<Product>OpenOrClosed Core dll for Umbraco 8 &amp; 9</Product>
 	<Authors>Robert Foster</Authors>
-	<Copyright>Copyright © Your IT Group 2021</Copyright>
+	<Copyright>Copyright © Your IT Group 2022</Copyright>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 	<PackageIcon>OpenOrClosed_logo.png</PackageIcon>

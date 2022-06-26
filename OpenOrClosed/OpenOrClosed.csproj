@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net5.0;net472</TargetFrameworks>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<Description>Open or Closed - Yet another Business Hours package!
 
 	Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+
@@ -65,6 +65,10 @@
 			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
 		</Content>
 
+		<None Include="build\**\*.*">
+			<Pack>True</Pack>
+			<PackagePath>buildTransitive</PackagePath>
+		</None>
 		<None Include="build\**\*.*">
 			<Pack>True</Pack>
 			<PackagePath>build</PackagePath>

@@ -10,6 +10,7 @@
         time_24hr: true,
         labelOpen: 'Open',
         labelClosed: 'Closed',
+        closedHoursOptional: false,
         labelBankHolidays: 'Bank Holidays',
         icons: {
             time: "icon-time",
@@ -304,10 +305,10 @@
                 for (let j = 0; j < day.hoursOfBusiness.length; j++) {
                     let timeVm = createHoursVm()
 
-                    timeVm.opensAt.hasPickerValue = true
+                    timeVm.opensAt.hasPickerValue = day.hoursOfBusiness[j].opensAt !== null
                     timeVm.opensAt.pickerValue = day.hoursOfBusiness[j].opensAt
 
-                    timeVm.closesAt.hasPickerValue = true
+                    timeVm.closesAt.hasPickerValue = day.hoursOfBusiness[j].closesAt !== null
                     timeVm.closesAt.pickerValue = day.hoursOfBusiness[j].closesAt
 
                     dayVm.hours.push(timeVm)

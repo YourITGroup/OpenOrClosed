@@ -11,6 +11,7 @@
         time_24hr: true,
         labelOpen: 'Open',
         labelClosed: 'Closed',
+        closedHoursOptional: false,
         icons: {
             time: "icon-time",
             date: "icon-calendar",
@@ -404,10 +405,10 @@
 
                 for (let j = 0; j < date.hoursOfBusiness.length; j++) {
                     let timeVm = createHoursVm()
-                    timeVm.opensAt.hasPickerValue = true
+                    timeVm.opensAt.hasPickerValue = date.hoursOfBusiness[j].opensAt !== null
                     timeVm.opensAt.pickerValue = date.hoursOfBusiness[j].opensAt
 
-                    timeVm.closesAt.hasPickerValue = true
+                    timeVm.closesAt.hasPickerValue = date.hoursOfBusiness[j].closesAt !== null
                     timeVm.closesAt.pickerValue = date.hoursOfBusiness[j].closesAt
 
                     dateVm.hours.push(timeVm)

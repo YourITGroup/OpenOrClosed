@@ -10,7 +10,7 @@ namespace OpenOrClosed.Core.ViewModels
         public DateTime OpensAt { get; set; }
 
         [DataMember(Name = "closesAt")]
-        public DateTime ClosesAt { get; set; }
+        public DateTime? ClosesAt { get; set; }
 
         [DataMember(Name = "byAppointmentOnly")]
         public bool ByAppointmentOnly { get; set; } = false;

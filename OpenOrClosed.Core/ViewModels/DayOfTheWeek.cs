@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OpenOrClosed.Core.ViewModels
 {
-    internal enum DayOfTheWeek
+    public enum DayOfTheWeek
     {
         Monday = 0,
         Tuesday = 1,

@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenOrClosed" Version="1.0.3" />
     <PackageReference Include="Umbraco.Cms" Version="10.0.0" />
   </ItemGroup>
 
@@ -30,4 +29,13 @@
     <RazorCompileOnBuild>false</RazorCompileOnBuild>
     <RazorCompileOnPublish>false</RazorCompileOnPublish>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Umbraco.Web.UI' " />
+
+  <Import Project="..\OpenOrClosed\build\OpenOrClosed.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\OpenOrClosed\OpenOrClosed.csproj" />
+    <ProjectReference Include="..\OpenOrClosed.Core\OpenOrClosed.Core.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

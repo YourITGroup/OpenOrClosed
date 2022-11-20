@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net5.0;net472</TargetFrameworks>
+		<TargetFrameworks>net6.0</TargetFrameworks>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<ContentTargetFolders>.</ContentTargetFolders>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
@@ -10,7 +10,7 @@
 		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
 		<DebugType>none</DebugType>
 
-		<Version>1.1.0</Version>
+		<Version>2.0.0-rc1</Version>
 		<Description>Open or Closed - Yet another Business Hours package!
 
 Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+
@@ -27,32 +27,24 @@ Monday through to Sunday and optionally Bank Holidays, set each day Open or Clos
 Special Business Hours:
 Adds the ability to specify specific dates, with the same set of features for Standard Business Hours.</Description>
 		<Company>Your IT Group</Company>
-		<Product>$(AssemblyName) for Umbraco 8 &amp; 9</Product>
+		<Product>$(AssemblyName) for Umbraco 10+</Product>
 		<Authors>Robert Foster</Authors>
-		<Copyright>Copyright © 2022</Copyright>
+		<Copyright>Copyright © Your IT Group 2022 - 2023</Copyright>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 		<PackageIcon>OpenOrClosed_logo.png</PackageIcon>
-		<PackageTags>Umbraco Business Hours Umbraco8 Umbraco9 Datatype dotnetcore dotnet5</PackageTags>
+		<PackageTags>Umbraco Business Hours Umbraco8 Umbraco9 Datatype dotnetcore dotnet6</PackageTags>
 		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>Now multi-targeting Umbraco 8 and 9</PackageReleaseNotes>
+		<PackageReleaseNotes>Targeting Umbraco 10+</PackageReleaseNotes>
 		<PackageReadmeFile>readme.nuget.md</PackageReadmeFile>
 		<RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
-	  <PlatformTarget>AnyCPU</PlatformTarget>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net472|AnyCPU'">
-	  <PlatformTarget>AnyCPU</PlatformTarget>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net472|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	  <PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 

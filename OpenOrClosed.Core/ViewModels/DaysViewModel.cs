@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace OpenOrClosed.Core.ViewModels
@@ -8,6 +9,9 @@ namespace OpenOrClosed.Core.ViewModels
     {
         [DataMember(Name = "dayOfTheWeek")]
         public string DayOfTheWeek { get; set; }
+
+        [DataMember(Name = "day")]
+        public DayOfWeek? Day {get; set;}
 
         [DataMember(Name = "isOpen")]
         public bool IsOpen { get; set; }

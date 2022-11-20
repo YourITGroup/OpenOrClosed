@@ -2,7 +2,7 @@
 
 ![Open or Closed Logo](https://raw.githubusercontent.com/YourITGroup/OpenOrClosed/master/GithubFiles/Logo/OpenOrClosed_logo.png)
 
-Yet another Business Hours package supporting Umbraco 8.6+
+Yet another Business Hours package supporting Umbraco 10+
 
 Adds Property Editors to manage standard and special (read holiday) opening/closing times
 
@@ -26,6 +26,13 @@ Monday through to Sunday and optionally Bank Holidays, set each day Open or Clos
 Adds the ability to specify specific dates, with the same set of features for Standard Business Hours.
 
 ## Change Log
+
+### Version 2.0.0
+
+* Supports Umbraco 10+ only - for Umbraco 8 or 9 install version 1.1.0
+* Hours are now optional, allowing for a Days Open/Closed facility without the need to specify times.
+* Special Days can now be default to closed when added.
+* System.DayOfWeek is now included in the StandardHours View Model, assisting with the ability to render a localised Day.
 
 ### Version 1.1.0
 

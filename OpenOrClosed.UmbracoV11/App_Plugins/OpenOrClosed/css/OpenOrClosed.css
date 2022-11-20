@@ -1,0 +1,23 @@
+﻿.business-hours input.datepickerinput {
+    max-width: 100px;
+}
+
+.business-hours .date-row, .business-hours .time-row {
+    margin-bottom: 1.5em;
+}
+
+.business-hours label {
+    padding: 0.5em;
+}
+
+.business-hours .umb-toggle__toggle {
+    margin-top: 0.5em;
+}
+
+.business-hours button[role=checkbox] {
+    margin-bottom: 0.5em;
+}
+
+.business-hours button[role=checkbox] > .umb-toggle__toggle {
+    margin-top: 0;
+}

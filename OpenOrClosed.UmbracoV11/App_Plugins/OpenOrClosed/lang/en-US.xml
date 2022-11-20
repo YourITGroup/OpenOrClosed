@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <creator>
+	<name>Your IT Team</name>
+	<link>https://youritteam.com.au</link>
+  </creator>
+  <area alias="content">
+	<key alias="addDate">Add date</key>
+	<key alias="deleteDate">Remove date</key>
+	<key alias="clearTime">Clear time</key>
+	<key alias="addHours">Add hours</key>
+	<key alias="deleteHours">Remove hours</key>
+  </area>
+  <area alias="validation">
+	<key alias="invalidTime">Invalid time</key>
+  </area>
+  <area alias="openOrClosed">
+	<key alias="open">Open</key>
+	<key alias="closed">Closed</key>
+	<key alias="monday">Monday</key>
+	<key alias="tuesday">Tuesday</key>
+	<key alias="wednesday">Wednesday</key>
+	<key alias="thursday">Thursday</key>
+	<key alias="friday">Friday</key>
+	<key alias="saturday">Saturday</key>
+	<key alias="sunday">Sunday</key>
+	<key alias="bankHoliday">Bank Holiday</key>
+	<key alias="appointmentOnly">Appointment only</key>
+	<key alias="unrestricted">Unrestricted</key>
+  </area>
+</language>

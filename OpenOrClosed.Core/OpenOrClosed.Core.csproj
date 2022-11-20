@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFrameworks>net5.0;net472</TargetFrameworks>
-	<Version>1.1.0</Version>
+	<TargetFrameworks>net6.0</TargetFrameworks>
+	<Version>2.0.0-rc1</Version>
 	<Description>
 	Open or Closed - Yet another Business Hours package!
 
@@ -21,54 +21,36 @@
 	Adds the ability to specify specific dates, with the same set of features for Standard Business Hours.
 	</Description>
 	<Company>Your IT Group</Company>
-	<Product>OpenOrClosed Core dll for Umbraco 8 &amp; 9</Product>
+	<Product>OpenOrClosed Core dll for Umbraco 10+</Product>
 	<Authors>Robert Foster</Authors>
-	<Copyright>Copyright © Your IT Group 2022</Copyright>
+	<Copyright>Copyright © Your IT Group 2022 - 2023</Copyright>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 	<PackageIcon>OpenOrClosed_logo.png</PackageIcon>
 	<PackageIconUrl>https://raw.githubusercontent.com/YourITGroup/OpenOrClosed/master/assets/OpenOrClosed_logo.png</PackageIconUrl>
 	<RepositoryUrl>https://github.com/YourITGroup/OpenOrClosed</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
-	<PackageTags>Umbraco Business Hours Umbraco8 Umbraco9 Datatype dotnetcore dotnet5</PackageTags>
+	<PackageTags>Umbraco Business Hours Umbraco Datatype dotnetcore dotnet6</PackageTags>
 	<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-	<PackageReleaseNotes>Now multi-targeting Umbraco 8 and 9</PackageReleaseNotes>
+	<PackageReleaseNotes>Targeting Umbraco 10+</PackageReleaseNotes>
 	<PackageReadmeFile>README.nuget.md</PackageReadmeFile>
   </PropertyGroup>
 
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	  <PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net472|AnyCPU'">
-	  <PlatformTarget>AnyCPU</PlatformTarget>
-	</PropertyGroup>
-
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net472|AnyCPU'">
-	  <PlatformTarget>AnyCPU</PlatformTarget>
-	</PropertyGroup>
-	
-	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
-		<PackageReference Include="UmbracoCms.Core" Version="8.10.0" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
-		<PackageReference Include="Umbraco.Cms.Web.Common">
-		  <Version>9.0.0</Version>
+	<ItemGroup>
+		<PackageReference Include="Umbraco.Cms.Web.Common" Version="9.0.0">
 		</PackageReference>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Compile Remove="ViewModels\DayOfTheWeek.cs" />
-	</ItemGroup>
 	<ItemGroup>
 		<None Include="..\GithubFiles\Logo\OpenOrClosed_logo.png">
 			<Pack>True</Pack>
@@ -78,5 +60,8 @@
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Remove="ViewModels\DayOfTheWeek.cs" />
 	</ItemGroup>
 </Project>

@@ -6,9 +6,8 @@ on:
 
 env:
   SOLUTION: OpenOrClosed.sln
-  PLUGIN_PROJECT: OpenOrClosed\OpenOrClosed.csproj
-  CORE_PROJECT: OpenOrClosed.Core\OpenOrClosed.Core.csproj
-  OUTPUT_PATH: ${{ github.workspace }}\.output
+  PLUGIN_PROJECT: OpenOrClosed/OpenOrClosed.csproj
+  CORE_PROJECT: OpenOrClosed.Core/OpenOrClosed.Core.csproj
 
 jobs:
   publish-nuget:

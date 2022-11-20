@@ -1,0 +1,10 @@
+{
+  "javascript": [
+    "~/App_Plugins/OpenOrClosed/js/TimePicker.controller.js",
+    "~/App_Plugins/OpenOrClosed/js/StandardHours.controller.js",
+    "~/App_Plugins/OpenOrClosed/js/SpecialHours.controller.js"
+  ],
+  "css": [
+    "~/App_Plugins/OpenOrClosed/css/OpenOrClosed.css"
+  ]
+}

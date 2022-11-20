@@ -1,8 +1,4 @@
-﻿#if NET5_0_OR_GREATER
-using Umbraco.Cms.Core.PropertyEditors;
-#else
-using Umbraco.Core.PropertyEditors;
-#endif
+﻿using Umbraco.Cms.Core.PropertyEditors;
 namespace OpenOrClosed.Core.PropertyEditors
 {
     public class SpecialHoursConfiguration : AbstractHoursConfiguration
@@ -12,5 +8,10 @@ namespace OpenOrClosed.Core.PropertyEditors
             "boolean", 
             Description = "If checked, dates that have passed will be removed on save.")]
         public bool RemoveOldDates { get; set; }
+
+        [ConfigurationField("defaultToClosed", "Default to Closed",
+            "boolean",
+            Description = "If checked, specified dates will default to Closed instead of Open")]
+        public bool DefaultToClosed { get; set; }
     }
 }

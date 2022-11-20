@@ -39,6 +39,13 @@ Adds the ability to specify specific dates, with the same set of features for St
 
 ## Change Log
 
+### Version 2.0.0
+
+* Supports Umbraco 10+ only - for Umbraco 8 or 9 install version 1.1.0
+* Hours are now optional, allowing for a Days Open/Closed facility without the need to specify times.
+* Special Days can now be default to closed when added.
+* System.DayOfWeek is now included in the StandardHours View Model, assisting with the ability to render a localised Day.
+
 ### Version 1.1.0
 
 * Closed Times can now be made optional by configuration (breaking change)

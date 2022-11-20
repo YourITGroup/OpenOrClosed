@@ -1,22 +1,18 @@
-﻿#if NET5_0_OR_GREATER
-using Umbraco.Cms.Core.Models.PublishedContent;
+﻿using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
-#else
-using Umbraco.Core.Models.PublishedContent;
-using Umbraco.Core.PropertyEditors;
-#endif
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenOrClosed.Core.ViewModels;
+using OpenOrClosed.Core.PropertyEditors;
 
 namespace OpenOrClosed.Core.PropertyValueConverters
 {
     public class StandardHoursConverter : PropertyValueConverterBase
     {
         public override bool IsConverter(IPublishedPropertyType propertyType)
-            => Constants.PropertyEditors.Aliases.StandardHours == propertyType.EditorAlias;
+            => StandardHoursPropertyEditor.EditorAlias == propertyType.EditorAlias;
 
         public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
             => typeof(IEnumerable<DaysViewModel>);

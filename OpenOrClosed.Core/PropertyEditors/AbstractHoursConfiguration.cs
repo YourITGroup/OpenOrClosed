@@ -1,13 +1,14 @@
-﻿#if NET5_0_OR_GREATER
-using Umbraco.Cms.Core.PropertyEditors;
-#else
-using Umbraco.Core.PropertyEditors;
-#endif
+﻿using Umbraco.Cms.Core.PropertyEditors;
 
 namespace OpenOrClosed.Core.PropertyEditors
 {
     public abstract class AbstractHoursConfiguration
     {
+        [ConfigurationField("excludeTimes", "Exclude Times", 
+            "boolean", 
+            Description = "If checked, Times will not be available to be chosen.")]
+        public bool ExcludeTimes { get; set; }
+
         [ConfigurationField("time_24hr", "Time Format",
             "~/App_Plugins/OpenOrClosed/views/prevalues/timeformat.html",
             Description = "12/24 hour clock")]

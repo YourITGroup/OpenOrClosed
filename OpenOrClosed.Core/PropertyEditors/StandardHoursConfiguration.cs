@@ -1,14 +1,9 @@
-﻿#if NET5_0_OR_GREATER
-using Umbraco.Cms.Core.PropertyEditors;
-#else
-using Umbraco.Core.PropertyEditors;
-#endif
+﻿using Umbraco.Cms.Core.PropertyEditors;
 
 namespace OpenOrClosed.Core.PropertyEditors
 {
     public class StandardHoursConfiguration : AbstractHoursConfiguration
     {
-
         [ConfigurationField("showBankHolidays", "Bank Holidays",
             "boolean",
             Description = "Show Bank Holidays Option")]

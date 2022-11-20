@@ -53,7 +53,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
         
     - name: Create the package
-      run: dotnet pack --configuration Release
+      run: dotnet pack --configuration Release -o ${{ env.OUTPUT_PATH }}
       
     - name: Upload NuGet artifacts
       uses: actions/upload-artifact@v1

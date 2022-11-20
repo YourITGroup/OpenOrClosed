@@ -60,8 +60,10 @@ jobs:
     #     }
     #     Copy-Item -Path $src\*.dll -Destination $dest
 
+    - run: dotnet build --configuration Release
+
     - name: Create Nuget Packages
-      run: dotnet pack --configuration Release
+      run: dotnet pack --configuration Release -o ${{ env.OUTPUT_PATH }}
       # run: msbuild ${{ env.SOLUTION }} -p:Configuration=Release -p:GeneratePackageOnBuild=true -p:PackageOutputPath=${{ env.OUTPUT_PATH }}
       
     - name: Publish to NuGet

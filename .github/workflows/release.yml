@@ -45,29 +45,14 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
     
-    # - name: Setup MSBuild
-    #   uses: microsoft/setup-msbuild@v1.1
-
-    # - name: Restore NuGet packages
-    #   run: msbuild ${{ env.SOLUTION }} -t:restore
-
-    # - name: Copy lucene analyser
-    #   run: |
-    #     $src = "C:\Users\runneradmin\.nuget\packages\lucene.net\4.8.0-beta00014\analyzers\dotnet\cs"
-    #     $dest = "C:\Users\runneradmin\.nuget\packages\lucene.net\3.0.3\analyzers\dotnet\cs"
-    #     if (!(Test-Path -Path $dest)) {
-    #         New-Item -ItemType directory -Path $dest
-    #     }
-    #     Copy-Item -Path $src\*.dll -Destination $dest
-
     - run: dotnet build --configuration Release
 
     - name: Create Nuget Packages
-      run: dotnet pack --configuration Release -o ${{ env.OUTPUT_PATH }}
-      # run: msbuild ${{ env.SOLUTION }} -p:Configuration=Release -p:GeneratePackageOnBuild=true -p:PackageOutputPath=${{ env.OUTPUT_PATH }}
+      run: dotnet pack --configuration Release -o  ../build.out/
       
     - name: Publish to NuGet
-      run: dotnet nuget push "${{ env.OUTPUT_PATH }}\*.nupkg" --skip-duplicate --api-key "$env:apiKey" -s https://api.nuget.org/v3/index.json
+      working-directory: build.out
+      run: dotnet nuget push "*.nupkg" --skip-duplicate --api-key "$env:apiKey" -s https://api.nuget.org/v3/index.json
       env:
         apiKey: ${{ secrets.NUGET_API_KEY }}
 

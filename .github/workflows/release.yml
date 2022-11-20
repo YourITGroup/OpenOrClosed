@@ -12,7 +12,12 @@ env:
 
 jobs:
   publish-nuget:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        dotnet-version: ['7.x' ]
+
     steps:
     - uses: actions/checkout@v2
 
@@ -33,24 +38,31 @@ jobs:
             "echo Pre-Release NOT detected"
             echo "::set-output name=prerelease::false"
         }
+
+    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+      uses: actions/setup-dotnet@v3
+
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
     
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1.1
+    # - name: Setup MSBuild
+    #   uses: microsoft/setup-msbuild@v1.1
 
-    - name: Restore NuGet packages
-      run: msbuild ${{ env.SOLUTION }} -t:restore
+    # - name: Restore NuGet packages
+    #   run: msbuild ${{ env.SOLUTION }} -t:restore
 
-    - name: Copy lucene analyser
-      run: |
-        $src = "C:\Users\runneradmin\.nuget\packages\lucene.net\4.8.0-beta00014\analyzers\dotnet\cs"
-        $dest = "C:\Users\runneradmin\.nuget\packages\lucene.net\3.0.3\analyzers\dotnet\cs"
-        if (!(Test-Path -Path $dest)) {
-            New-Item -ItemType directory -Path $dest
-        }
-        Copy-Item -Path $src\*.dll -Destination $dest
+    # - name: Copy lucene analyser
+    #   run: |
+    #     $src = "C:\Users\runneradmin\.nuget\packages\lucene.net\4.8.0-beta00014\analyzers\dotnet\cs"
+    #     $dest = "C:\Users\runneradmin\.nuget\packages\lucene.net\3.0.3\analyzers\dotnet\cs"
+    #     if (!(Test-Path -Path $dest)) {
+    #         New-Item -ItemType directory -Path $dest
+    #     }
+    #     Copy-Item -Path $src\*.dll -Destination $dest
 
     - name: Create Nuget Packages
-      run: msbuild ${{ env.SOLUTION }} -p:Configuration=Release -p:GeneratePackageOnBuild=true -p:PackageOutputPath=${{ env.OUTPUT_PATH }}
+      run: dotnet pack --configuration Release
+      # run: msbuild ${{ env.SOLUTION }} -p:Configuration=Release -p:GeneratePackageOnBuild=true -p:PackageOutputPath=${{ env.OUTPUT_PATH }}
       
     - name: Publish to NuGet
       run: dotnet nuget push "${{ env.OUTPUT_PATH }}\*.nupkg" --skip-duplicate --api-key "$env:apiKey" -s https://api.nuget.org/v3/index.json

@@ -63,7 +63,7 @@ jobs:
       run: dotnet pack --configuration Release -o  ../build.out/
       
     - name: Publish to NuGet
-      working-directory: build.out
+      working-directory: ../build.out
       run: dotnet nuget push "*.nupkg" --skip-duplicate --api-key "$env:apiKey" -s https://api.nuget.org/v3/index.json
       env:
         apiKey: ${{ secrets.NUGET_API_KEY }}

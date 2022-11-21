@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function timePickerController($scope, angularHelper, validationMessageService) {
+    function timePickerController($scope, angularHelper, dateHelper, validationMessageService) {
 
         let flatPickr = null;
 
@@ -30,14 +30,15 @@
             }
 
             // map the user config
-            $scope.model.config = angular.extend(config, $scope.model.config);
+            $scope.model.config = Utilities.extend(config, $scope.model.config);
 
             // date picker config
             $scope.timePickerConfig = {
                 enableTime: true,
                 noCalendar: true,
                 dateFormat: "H:i:S",
-                time_24hr: false
+                time_24hr: false,
+                clickOpens: !$scope.readonly
             };
 
             setDatePickerVal();
@@ -50,8 +51,8 @@
         }
 
         $scope.clearDate = function ($event) {
-            $event.stopPropagation();
-            $event.preventDefault();
+            // $event.stopPropagation();
+            // $event.preventDefault();
             $scope.hasDatetimePickerValue = false;
             if ($scope.model) {
                 $scope.model.datetimePickerValue = null;
@@ -124,23 +125,46 @@
 
         function updateModelValue(momentDate) {
             if ($scope.hasDatetimePickerValue) {
-                $scope.model.value = momentDate.format($scope.model.config.format);
+                //check if we are supposed to offset the time
+                if ($scope.model.value && Object.toBoolean($scope.model.config.offsetTime) && Umbraco.Sys.ServerVariables.application.serverTimeOffset !== undefined) {
+                    $scope.model.value = dateHelper.convertToServerStringTime(momentDate, Umbraco.Sys.ServerVariables.application.serverTimeOffset);
+                    $scope.serverTime = dateHelper.convertToServerStringTime(momentDate, Umbraco.Sys.ServerVariables.application.serverTimeOffset, "YYYY-MM-DD HH:mm:ss Z");
+                }
+                else {
+                    $scope.model.value = momentDate.format("YYYY-MM-DD HH:mm:ss");
+                }
+                // $scope.model.value = momentDate.format($scope.model.config.format);
             }
             else {
                 $scope.model.value = null;
             }
-            angularHelper.getCurrentForm($scope).$setDirty();
+
+            setDirty();
+        }
+    
+        function setDirty() {
+            if ($scope.datePickerForm) {
+                $scope.datePickerForm.datepicker.$setDirty();
+            }
         }
 
         /** Sets the value of the date picker control adn associated viewModel objects based on the model value */
         function setDatePickerVal() {
             if ($scope.model.value) {
+                var dateVal;
+                //check if we are supposed to offset the time
+                if ($scope.model.value && Object.toBoolean($scope.model.config.offsetTime) && $scope.serverTimeNeedsOffsetting) {
+                    //get the local time offset from the server
+                    dateVal = dateHelper.convertToLocalMomentTime($scope.model.value, Umbraco.Sys.ServerVariables.application.serverTimeOffset);
+                    $scope.serverTime = dateHelper.convertToServerStringTime(dateVal, Umbraco.Sys.ServerVariables.application.serverTimeOffset, "YYYY-MM-DD HH:mm:ss Z");
+                }
+                else {
+                    //create a normal moment , no offset required
+                    var dateVal = $scope.model.value ? moment($scope.model.value, "YYYY-MM-DD HH:mm:ss") : moment();
+                }
                 //create a normal moment , no offset required
-                var dateVal = $scope.model.value ? moment($scope.model.value, $scope.model.config.format) : moment();
+                // var dateVal = $scope.model.value ? moment($scope.model.value, $scope.model.config.format) : moment();
                 $scope.model.datetimePickerValue = dateVal.format($scope.model.config.format);
-            }
-            else {
-                $scope.clearDate();
             }
         }
 
@@ -156,6 +180,6 @@
     }
 
     angular.module('umbraco')
-        .controller('OpenOrClosed.PropertyEditors.TimePicker.controller', timePickerController);
+        .controller('OpenOrClosed.PropertyEditors.TimePickerController', timePickerController);
 
 })();

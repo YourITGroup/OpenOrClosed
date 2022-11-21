@@ -1,4 +1,4 @@
-<div class="umb-property-editor umb-datepicker" ng-controller="OpenOrClosed.PropertyEditors.TimePicker.controller">
+<div class="umb-property-editor umb-datepicker" ng-controller="OpenOrClosed.PropertyEditors.TimePickerController">
 
     <ng-form name="timePickerForm">
 
@@ -10,20 +10,21 @@
                                   on-change="timePickerChange(dateStr)">
 
                 <div class="input-append">
-                    <input name="timepicker"
+                    <input type="text"
+                           name="timepicker"
                            id="{{model.alias}}"
-                           type="text"
                            ng-model="model.datetimePickerValue"
                            ng-blur="inputChanged()"
                            ng-required="model.validation.mandatory"
                            val-server="value"
-                           class="datepickerinput">
-                    <span class="add-on" aria-hidden="true">
-                        <i class="icon-time"></i>
-                    </span>
-                    <span class="add-on" ng-click="clearDate($event)" ng-show="hasDatetimePickerValue === true || timePickerForm.timepicker.$error.pickerError === true">
-                        <i class="icon-delete" aria-hidden="true"></i>
+                           class="datepickerinput"
+                           ng-readonly="readonly" />
+                    <button ng-if="!readonly" type="button" class="btn-clear" ng-click="clearDate()" ng-show="hasDatetimePickerValue === true || datePickerForm.datepicker.$error.pickerError === true">
+                        <umb-icon icon="icon-delete"></umb-icon>
                         <span class="sr-only"><localize key="content_clearTime">Clear time</localize></span>
+                    </button>
+                    <span ng-if="!readonly" class="add-on">
+                        <umb-icon icon="icon-time"></umb-icon>
                     </span>
                 </div>
 

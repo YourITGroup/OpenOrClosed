@@ -64,9 +64,7 @@ jobs:
       
     - name: Publish to NuGet
       working-directory: ../build.out
-      run: dotnet nuget push "*.nupkg" --skip-duplicate --api-key "$env:apiKey" -s https://api.nuget.org/v3/index.json
-      env:
-        apiKey: ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{ secrets.NUGET_API_KEY }}
 
     - uses: avakar/tag-and-release@v1
       name: Create Release Tag v${{ steps.package_version.outputs.version }}
@@ -80,5 +78,5 @@ jobs:
     - name: Release information for v${{ steps.package_version.outputs.version }}
       run: |
         echo Release Id: ${{ steps.release.outputs.id }}
-        echo Upload URL: "${{ steps.release.outputs.upload_url }}"
-        echo Release URL: "${{ steps.release.outputs.html_url }}"
+        echo Upload URL: ${{ steps.release.outputs.upload_url }}
+        echo Release URL: ${{ steps.release.outputs.html_url }}

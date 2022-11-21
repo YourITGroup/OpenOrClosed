@@ -10,7 +10,7 @@
 		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
 		<DebugType>none</DebugType>
 
-		<Version>2.0.0-rc1</Version>
+		<Version>2.0.0</Version>
 		<Description>Open or Closed - Yet another Business Hours package!
 
 Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+

@@ -27,6 +27,10 @@ Adds the ability to specify specific dates, with the same set of features for St
 
 ## Change Log
 
+### Version 2.0.1
+
+* Standard Hours now reflect the current week for the OpensAt and ClosesAt lists
+
 ### Version 2.0.0
 
 * Supports Umbraco 10+ only - for Umbraco 8 or 9 install version 1.1.0

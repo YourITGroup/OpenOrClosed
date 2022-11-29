@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<TargetFrameworks>net6.0</TargetFrameworks>
-	<Version>2.0.1</Version>
+	<Version>2.0.2</Version>
 	<Description>
 	Open or Closed - Yet another Business Hours package!
 
@@ -28,19 +28,18 @@
 	<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 	<PackageIcon>OpenOrClosed_logo.png</PackageIcon>
 	<PackageIconUrl>https://raw.githubusercontent.com/YourITGroup/OpenOrClosed/master/assets/OpenOrClosed_logo.png</PackageIconUrl>
+	<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/YourITGroup/OpenOrClosed</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
-	<PackageTags>Umbraco Business Hours Umbraco Datatype dotnetcore dotnet6</PackageTags>
+	<PackageTags>Umbraco Business Hours Umbraco Datatype umbraco-marketplace</PackageTags>
 	<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
 	<PackageReleaseNotes>Targeting Umbraco 10+</PackageReleaseNotes>
 	<PackageReadmeFile>README.nuget.md</PackageReadmeFile>
   </PropertyGroup>
 
-
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
-
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	  <PlatformTarget>AnyCPU</PlatformTarget>

@@ -8,6 +8,7 @@ env:
   SOLUTION: OpenOrClosed.sln
   PLUGIN_PROJECT: OpenOrClosed/OpenOrClosed.csproj
   CORE_PROJECT: OpenOrClosed.Core/OpenOrClosed.Core.csproj
+  OUTPUT_PATH: ${{ github.workspace }}/.output
 
 jobs:
   publish-nuget:
@@ -60,10 +61,10 @@ jobs:
     - run: dotnet build --configuration Release
 
     - name: Create Nuget Packages
-      run: dotnet pack --configuration Release -o  ../build.out/
+      run: dotnet pack --configuration Release -o  ${{ env.OUTPUT_PATH }}
       
     - name: Publish to NuGet
-      working-directory: ../build.out
+      working-directory: ${{ env.OUTPUT_PATH }}
       run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json --skip-duplicate --api-key ${{ secrets.NUGET_API_KEY }}
 
     - uses: avakar/tag-and-release@v1

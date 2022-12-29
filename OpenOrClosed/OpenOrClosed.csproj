@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<ContentTargetFolders>.</ContentTargetFolders>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
@@ -10,7 +10,7 @@
 		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
 		<DebugType>none</DebugType>
 
-		<Version>2.0.2</Version>
+		<Version>2.0.3</Version>
 		<Description>Open or Closed - Yet another Business Hours package!
 
 Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+
@@ -34,7 +34,7 @@ Adds the ability to specify specific dates, with the same set of features for St
 		<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/YourITGroup/OpenOrClosed</RepositoryUrl>
 		<PackageIcon>OpenOrClosed_logo.png</PackageIcon>
-		<PackageTags>Umbraco Business Hours Umbraco8 Umbraco9 Datatype dotnetcore dotnet6</PackageTags>
+		<PackageTags>Umbraco Business Hours Umbraco8 Umbraco9 Datatype dotnetcore dotnet6 umbraco-marketplace</PackageTags>
 		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
 		<PackageReleaseNotes>Targeting Umbraco 10+</PackageReleaseNotes>
 		<PackageReadmeFile>readme.nuget.md</PackageReadmeFile>
@@ -58,21 +58,11 @@ Adds the ability to specify specific dates, with the same set of features for St
 		  <Pack>True</Pack>
 		  <PackagePath></PackagePath>
 		</None>
+		
+		<Content Include="App_Plugins\OpenOrClosed\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
+		
+		<None Include="build\**" Pack="true" PackagePath="build" />
 
-		<Content Include="App_Plugins\OpenOrClosed\**\*.*">
-			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
-		</Content>
-
-		<None Include="build\**\*.*">
-			<Pack>True</Pack>
-			<PackagePath>buildTransitive</PackagePath>
-		</None>
-
-		<None Include="build\**\*.*">
-			<Pack>True</Pack>
-			<PackagePath>build</PackagePath>
-		</None>
 	</ItemGroup>
 
 	<ItemGroup>

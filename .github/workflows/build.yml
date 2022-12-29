@@ -5,7 +5,7 @@ on:
 
 env:
   SOLUTION: OpenOrClosed.sln
-  OUTPUT_PATH: ${{ github.workspace }}\.output
+  OUTPUT_PATH: ${{ github.workspace }}/.output
 
 jobs:
   build:
@@ -35,10 +35,10 @@ jobs:
       run: dotnet build --configuration Release --no-restore
         
     - name: Create the package
-      run: dotnet pack --configuration Release -o ../build.out/
+      run: dotnet pack --configuration Release -o ${{ env.OUTPUT_PATH }}
       
     - name: Upload NuGet artifacts
       uses: actions/upload-artifact@v1
       with:
         name: nuget
-        path: ../build.out/
+        path: ${{ env.OUTPUT_PATH }}

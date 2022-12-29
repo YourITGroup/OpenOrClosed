@@ -1,4 +1,8 @@
 {
+  "name": "Open or Closed",
+  "version: "2.0.3",
+  "allowPackageTelemetry": true,
+  "bundleOptions": "Default",
   "javascript": [
     "~/App_Plugins/OpenOrClosed/js/TimePicker.controller.js",
     "~/App_Plugins/OpenOrClosed/js/StandardHours.controller.js",

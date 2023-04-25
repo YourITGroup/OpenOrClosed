@@ -27,7 +27,7 @@
                     <label ng-show="d.isOpen" class="hours-open">{{model.config.labelOpen}}</label>
                     <label ng-show="!d.isOpen" class="hours-closed">{{model.config.labelClosed}}</label>
                 </div>
-                <textarea ng-show="!d.isOpen" ng-model="h.comment" on-change="setComment(h)"
+                <textarea ng-show="!d.isOpen" ng-model="d.comment" on-change="setComment(val)"
                     placeholder="Reason for being closed" class="ui-textarea"></textarea>
                 <div class="span5" ng-if="!model.config.excludeTimes" ng-show="d.isOpen">
                     <div ng-repeat="h in d.hoursOfBusiness" class="row">

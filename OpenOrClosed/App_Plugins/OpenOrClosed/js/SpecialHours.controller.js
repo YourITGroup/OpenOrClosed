@@ -350,7 +350,7 @@
   };
 
   $scope.setComment = function (val) {
-    let day = getDayValue(index);
+    let day = getDateValue(index);
     day.comment = val;
   };
 

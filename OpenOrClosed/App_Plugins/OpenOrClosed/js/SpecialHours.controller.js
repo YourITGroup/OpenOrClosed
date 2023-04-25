@@ -117,6 +117,7 @@
     return {
       opensAt: null,
       closesAt: null,
+      openComment: '',
     };
   }
 
@@ -128,6 +129,11 @@
         pickerValue: null,
       },
       closesAt: {
+        picker: null,
+        hasPickerValue: false,
+        pickerValue: null,
+      },
+      openComment: {
         picker: null,
         hasPickerValue: false,
         pickerValue: null,

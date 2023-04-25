@@ -67,9 +67,7 @@
                             </button>
                         </div>
 
-                        <textarea ng-model="h.openComment"
-                            on-change="timePickerChange($parent.$index, $index, 'openComment', string)"
-                            placeholder="Comment" class="ui-textarea"></textarea>
+                        <textarea ng-model="h.openComment" placeholder="Comment" class="ui-textarea"></textarea>
 
                         <span ng-show="model.config.showAppointmentOnly">
                             <umb-toggle checked="h.byAppointmentOnly" on-click="toggleByAppointmentOnly(h)"

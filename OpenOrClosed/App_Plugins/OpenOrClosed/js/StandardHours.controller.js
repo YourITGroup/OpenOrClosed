@@ -195,11 +195,6 @@
     setTimePickerVal(parentIndex, index, target);
   };
 
-  $scope.openCommentChange = function (parentIndex, index, target, val) {
-    let vm = getTimeVm(parentIndex, index, target);
-    vm.value = val;
-  };
-
   $scope.clearTime = function (parentIndex, index, target) {
     let vm = getTimeVm(parentIndex, index, target);
     let timeValue = getTimeValue(parentIndex, index);

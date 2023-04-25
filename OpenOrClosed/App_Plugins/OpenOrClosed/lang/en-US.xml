@@ -9,7 +9,8 @@
 	<key alias="deleteDate">Remove date</key>
 	<key alias="clearTime">Clear time</key>
 	<key alias="addHours">Add hours</key>
-	<key alias="deleteHours">Remove hours</key>
+	<key alias="deleteHours">Remove</key>
+	<key alias="comment">Comment</key>
   </area>
   <area alias="validation">
 	<key alias="invalidTime">Invalid time</key>

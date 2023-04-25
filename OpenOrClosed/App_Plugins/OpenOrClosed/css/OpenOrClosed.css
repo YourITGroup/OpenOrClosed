@@ -3,7 +3,9 @@
 }
 
 .business-hours .date-row, .business-hours .time-row {
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
+    border-top: 1px solid #e4e4e7;
+    padding-top: 1em;
 }
 
 .business-hours label {
@@ -18,6 +20,41 @@
     margin-bottom: 0.5em;
 }
 
-.business-hours button[role=checkbox] > .umb-toggle__toggle {
+.business-hours button[role=checkbox]>.umb-toggle__toggle {
     margin-top: 0;
+}
+
+.business-hours .ui-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    width: max-content;
+    justify-content: space-between;
+}
+
+.business-hours .ui-textarea {
+    min-width: 500px;
+    margin-bottom: .5rem;
+}
+
+.business-hours .add-hours-btn {
+    min-width: 500px;
+    width: max-content;
+}
+
+.business-hours .hours-open,
+.business-hours .hours-closed {
+    font-weight: bold;
+}
+
+.business-hours .hours-open {
+    color: green;
+}
+
+.business-hours .hours-closed {
+    color: red;
+}
+
+.business-hours .special-date-row {
+    width: max-content;
 }

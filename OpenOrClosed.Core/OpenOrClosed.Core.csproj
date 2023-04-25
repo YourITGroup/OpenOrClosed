@@ -3,23 +3,6 @@
   <PropertyGroup>
 	<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 	<Version>2.0.4</Version>
-	<Description>
-	Open or Closed - Yet another Business Hours package!
-
-	Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+
-
-	There are two nuGet packages:
-	* OpenOrClosed - DataType Definitions and Property Editors for the Umbraco Back-Office
-	* OpenOrClosed.Core - PropertyValueConverters for use with ModelsBuilder to provide strongly typed models.
-
-	Property Editors:
-
-	Standard Business Hours:
-	Monday through to Sunday and optionally Bank Holidays, set each day Open or Closed with multiple ranges of times in either 24- or 12-hour time.  Each time range can be flagged with "By Appointment".
-
-	Special Business Hours:
-	Adds the ability to specify specific dates, with the same set of features for Standard Business Hours.
-	</Description>
 	<Company>Your IT Group</Company>
 	<Product>OpenOrClosed Core dll for Umbraco 10+</Product>
 	<Authors>Robert Foster</Authors>

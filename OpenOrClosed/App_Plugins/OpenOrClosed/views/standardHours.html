@@ -13,8 +13,10 @@
                     <label ng-show="d.isOpen" class="hours-open">{{model.config.labelOpen}}</label>
                     <label ng-show="!d.isOpen" class="hours-closed">{{model.config.labelClosed}}</label>
                 </div>
-                <textarea ng-show="!d.isOpen" ng-model="d.comment" on-change="setComment(val)"
+
+                <textarea ng-show="!d.isOpen" ng-model="d.closedComment" on-change="setClosedComment($index, val)"
                     placeholder="Reason for being closed" class="ui-textarea"></textarea>
+
                 <div class="span5" ng-if="!model.config.excludeTimes" ng-show="d.isOpen">
                     <div ng-repeat="h in d.hoursOfBusiness" class="row">
                         <div class="ui-row">
@@ -65,8 +67,9 @@
                             </button>
                         </div>
 
-                        <textarea ng-model="d.comment" on-change="setComment(val)" placeholder="Comment"
-                            class="ui-textarea"></textarea>
+                        <textarea ng-model="h.openComment"
+                            on-change="timePickerChange($parent.$index, $index, 'openComment', string)"
+                            placeholder="Comment" class="ui-textarea"></textarea>
 
                         <span ng-show="model.config.showAppointmentOnly">
                             <umb-toggle checked="h.byAppointmentOnly" on-click="toggleByAppointmentOnly(h)"

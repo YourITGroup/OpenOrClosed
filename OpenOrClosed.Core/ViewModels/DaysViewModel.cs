@@ -16,8 +16,8 @@ namespace OpenOrClosed.Core.ViewModels
         [DataMember(Name = "isOpen")]
         public bool IsOpen { get; set; }
 
-        [DataMember(Name = "comment")]
-        public string? Comment { get; set; }
+        [DataMember(Name = "closedComment")]
+        public string ClosedComment { get; set; }
 
         [DataMember(Name = "hoursOfBusiness")]
         public List<HoursViewModel> HoursOfBusiness { get; set; }

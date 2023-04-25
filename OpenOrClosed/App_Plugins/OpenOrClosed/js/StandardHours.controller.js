@@ -127,7 +127,7 @@
       dayoftheweek: $scope.vm.getLabelByIndex(index + 2),
       day: day,
       isOpen: false,
-      comment: '',
+      closedComment: '',
       hoursOfBusiness: [],
     };
   }
@@ -136,6 +136,7 @@
     return {
       opensAt: null,
       closesAt: null,
+      openComment: '',
     };
   }
 
@@ -152,6 +153,11 @@
         pickerValue: null,
       },
       closesAt: {
+        picker: null,
+        hasPickerValue: false,
+        pickerValue: null,
+      },
+      openComment: {
         picker: null,
         hasPickerValue: false,
         pickerValue: null,
@@ -187,6 +193,11 @@
       moment(time, $scope.model.config.timeFormat)
     );
     setTimePickerVal(parentIndex, index, target);
+  };
+
+  $scope.openCommentChange = function (parentIndex, index, target, val) {
+    let vm = getTimeVm(parentIndex, index, target);
+    vm.value = val;
   };
 
   $scope.clearTime = function (parentIndex, index, target) {
@@ -278,9 +289,9 @@
     }
   };
 
-  $scope.setComment = function (val) {
+  $scope.setClosedComment = function (index, val) {
     let day = getDayValue(index);
-    day.comment = val;
+    day.closedComment = val;
   };
 
   $scope.toggleByAppointmentOnly = function (hours) {

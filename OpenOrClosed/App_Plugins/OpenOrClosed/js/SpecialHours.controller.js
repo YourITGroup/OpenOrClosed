@@ -99,7 +99,7 @@
     return {
       date: null,
       isOpen: !$scope.model.config.defaultToClosed,
-      comment: null,
+      closedComment: '',
       hoursOfBusiness: [createHours()],
     };
   }
@@ -349,9 +349,9 @@
     }
   };
 
-  $scope.setComment = function (val) {
+  $scope.setClosedComment = function (index, val) {
     let day = getDateValue(index);
-    day.comment = val;
+    day.closedComment = val;
   };
 
   $scope.toggleByAppointmentOnly = function (hours) {

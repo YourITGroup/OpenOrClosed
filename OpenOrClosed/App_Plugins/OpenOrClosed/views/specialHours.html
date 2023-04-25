@@ -27,8 +27,10 @@
                     <label ng-show="d.isOpen" class="hours-open">{{model.config.labelOpen}}</label>
                     <label ng-show="!d.isOpen" class="hours-closed">{{model.config.labelClosed}}</label>
                 </div>
-                <textarea ng-show="!d.isOpen" ng-model="d.comment" on-change="setComment(val)"
+
+                <textarea ng-show="!d.isOpen" ng-model="d.closedComment" on-change="setClosedComment($index, val)"
                     placeholder="Reason for being closed" class="ui-textarea"></textarea>
+
                 <div class="span5" ng-if="!model.config.excludeTimes" ng-show="d.isOpen">
                     <div ng-repeat="h in d.hoursOfBusiness" class="row">
                         <span id="timepicker_{{model.alias}}_{{$parent.$index}}_{{$index}}_opensAt">
@@ -85,8 +87,8 @@
                         </div>
 
 
-                        <textarea ng-model="d.comment" on-change="setComment(val)" placeholder="Comment"
-                            class="ui-textarea"></textarea>
+                        <!-- <textarea ng-model="d.commentOpen" on-change="setComment($index,val)" placeholder="Comment"
+                            class="ui-textarea"></textarea> -->
                     </div>
                     <button type="button" class="umb-node-preview-add mb3 add-hours-btn" ng-click="addHours($index)">
                         <localize key="content_addHours">Add hours</localize>

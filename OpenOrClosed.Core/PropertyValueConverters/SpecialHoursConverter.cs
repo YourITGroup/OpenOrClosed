@@ -7,69 +7,68 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenOrClosed.Core.PropertyEditors;
 
-namespace OpenOrClosed.Core.PropertyValueConverters
+namespace OpenOrClosed.Core.PropertyValueConverters;
+
+public class SpecialHoursConverter : PropertyValueConverterBase
 {
-    public class SpecialHoursConverter : PropertyValueConverterBase
+    private readonly IDataTypeService dataTypeService;
+
+    public SpecialHoursConverter(IDataTypeService dataTypeService)
     {
-        private readonly IDataTypeService dataTypeService;
+        this.dataTypeService = dataTypeService;
+    }
 
-        public SpecialHoursConverter(IDataTypeService dataTypeService)
+    public override bool IsConverter(IPublishedPropertyType propertyType)
+        => SpecialHoursPropertyEditor.EditorAlias == propertyType.EditorAlias;
+
+    public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
+        => typeof(IEnumerable<ViewModels.SpecialDaysViewModel>);
+
+    public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
+        => PropertyCacheLevel.Element;
+
+    public override object ConvertSourceToIntermediate(IPublishedElement owner, IPublishedPropertyType propertyType, object source, bool preview)
+    {
+        var sourceString = source?.ToString();
+        if (string.IsNullOrWhiteSpace(sourceString))
         {
-            this.dataTypeService = dataTypeService;
+            return Enumerable.Empty<ViewModels.SpecialDaysViewModel>();
         }
+        var data = JsonConvert.DeserializeObject<IEnumerable<ViewModels.SpecialDaysViewModel>>(sourceString);
+        var picker = dataTypeService.GetDataType(propertyType.DataType.Id);
 
-        public override bool IsConverter(IPublishedPropertyType propertyType)
-            => SpecialHoursPropertyEditor.EditorAlias == propertyType.EditorAlias;
+        var dataTypePrevalues = picker.Editor.GetConfigurationEditor().ToValueEditor(picker.Configuration);
+        bool removeOldDates = dataTypePrevalues.FirstOrDefault(x => x.Key == Constants.PropertyEditors.PreValues.RemoveOldDates).Value?.ToString() == "1";
 
-        public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
-            => typeof(IEnumerable<ViewModels.SpecialDaysViewModel>);
+        var currDate = DateTime.Now.Date.Date;
 
-        public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
-            => PropertyCacheLevel.Element;
-
-        public override object ConvertSourceToIntermediate(IPublishedElement owner, IPublishedPropertyType propertyType, object source, bool preview)
+        // Go through and adjust the dates for each set of hours.
+        foreach (var date in data)
         {
-            var sourceString = source?.ToString();
-            if (string.IsNullOrWhiteSpace(sourceString))
-            {
-                return Enumerable.Empty<ViewModels.SpecialDaysViewModel>();
-            }
-            var data = JsonConvert.DeserializeObject<IEnumerable<ViewModels.SpecialDaysViewModel>>(sourceString);
-            var picker = dataTypeService.GetDataType(propertyType.DataType.Id);
-
-            var dataTypePrevalues = picker.Editor.GetConfigurationEditor().ToValueEditor(picker.Configuration);
-            bool removeOldDates = dataTypePrevalues.FirstOrDefault(x => x.Key == Constants.PropertyEditors.PreValues.RemoveOldDates).Value?.ToString() == "1";
-
-            var currDate = DateTime.Now.Date.Date;
-
-            // Go through and adjust the dates for each set of hours.
-            foreach (var date in data)
-            {
-                if (removeOldDates)
-                {
-                    if (date.Date.Date < currDate)
-                    {
-                        continue;
-                    }
-                }
-
-                foreach (var hours in date.HoursOfBusiness)
-                {
-                    hours.OpensAt = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, hours.OpensAt.Hour, hours.OpensAt.Minute, hours.OpensAt.Second);
-                    if (hours.ClosesAt != null)
-                    {
-                        hours.ClosesAt = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, hours.ClosesAt?.Hour ?? 0, hours.ClosesAt?.Minute ?? 0, hours.ClosesAt?.Second ?? 0);
-                    }
-                }
-            }
-
-            //Only all dates in the future 
             if (removeOldDates)
             {
-                return data.Where(x => x.Date.Date >= DateTime.Now.Date).ToList();
+                if (date.Date.Date < currDate)
+                {
+                    continue;
+                }
             }
 
-            return data;
+            foreach (var hours in date.HoursOfBusiness)
+            {
+                hours.OpensAt = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, hours.OpensAt.Hour, hours.OpensAt.Minute, hours.OpensAt.Second);
+                if (hours.ClosesAt != null)
+                {
+                    hours.ClosesAt = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, hours.ClosesAt?.Hour ?? 0, hours.ClosesAt?.Minute ?? 0, hours.ClosesAt?.Second ?? 0);
+                }
+            }
         }
+
+        //Only all dates in the future 
+        if (removeOldDates)
+        {
+            return data.Where(x => x.Date.Date >= DateTime.Now.Date).ToList();
+        }
+
+        return data;
     }
 }

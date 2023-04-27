@@ -11,6 +11,7 @@
         time_24hr: true,
         labelOpen: 'Open',
         labelClosed: 'Closed',
+        hoursOptional: false,
         closedHoursOptional: false,
         labelBankHolidays: 'Bank Holidays',
         icons: {
@@ -60,7 +61,10 @@
         'openOrClosed_sunday',
         'openOrClosed_bankHoliday',
         'openOrClosed_unrestricted',
-        'openOrClosed_appointmentOnly'
+        'openOrClosed_appointmentOnly',
+        'openOrClosed_comment',
+        'openOrClosed_closedReason',
+        'openOrClosed_openReason'
     ]
     ).then(function (data) {
         $scope.vm.labels.open = data[0]
@@ -75,6 +79,9 @@
         $scope.vm.labels.bankHoliday = data[9]
         $scope.vm.labels.unrestricted = data[10]
         $scope.vm.labels.appointmentOnly = data[11]
+        $scope.vm.labels.comment = data[12]
+        $scope.vm.labels.placeholderClosedReason = data[13]
+        $scope.vm.labels.placeholderOpenReason = data[14]
 
         // Now we can update our config and initialise the data.
 
@@ -91,6 +98,9 @@
         } else {
             $scope.vm.labels.bankHoliday = $scope.model.config.labelBankHolidays
         }
+
+        $scope.vm.labels.placeholderClosedReason = $scope.vm.labels.placeholderClosedReason.replace("{0}", $scope.vm.labels.closed)
+        $scope.vm.labels.placeholderOpenReason = $scope.vm.labels.placeholderOpenReason.replace("{0}", $scope.vm.labels.open)
 
         init()
     })
@@ -110,6 +120,8 @@
             dayoftheweek: $scope.vm.getLabelByIndex(index + 2),
             day: day,
             isOpen: false,
+            openComment: '',
+            closedComment: '',
             hoursOfBusiness: [
             ]
         }
@@ -118,7 +130,8 @@
     function createHours() {
         return {
             opensAt: null,
-            closesAt: null
+            closesAt: null,
+            comment: ''
         }
     }
 
@@ -257,7 +270,7 @@
     }
 
     $scope.addHours = function (index) {
-        if (!$scope.model.config.excludeTimes) {
+        if (!$scope.model.config.excludeTimes || !$scope.model.config.hoursOptional) {
             let day = getDayValue(index)
             let vm = getDayVm(index)
 
@@ -281,7 +294,8 @@
 
         day.hoursOfBusiness.splice(index, 1)
 
-        if (!Array.isArray(day.hoursOfBusiness) || day.hoursOfBusiness.length === 0) {
+        if (!$scope.model.config.hoursOptional &&
+            (!Array.isArray(day.hoursOfBusiness) || day.hoursOfBusiness.length === 0)) {
             $scope.toggleOpen(parentIndex)
         }
     }

@@ -27,6 +27,15 @@ Adds the ability to specify specific dates, with the same set of features for St
 
 ## Change Log
 
+### Version 2.0.5
+
+Special thanks to [Lasse Dollis Spilling](https://github.com/lassespilling) for his Comments contribution and cleanup
+
+* Adds comments for each entry in Standard and Special Hours
+* Added option to have all hours optional optional, not just closing hours.
+* Fixed bug on updating Time pickers
+* Cleaned up layout
+
 ### Version 2.0.1
 
 * Standard Hours now reflect the current week for the OpensAt and ClosesAt lists

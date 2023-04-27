@@ -1,6 +1,5 @@
-﻿namespace OpenOrClosed.PropertyEditors
+﻿namespace OpenOrClosed.PropertyEditors;
+
+public interface IHoursConfiguration
 {
-    public interface IHoursConfiguration
-    {
-    }
 }

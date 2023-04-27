@@ -32,6 +32,20 @@
             // map the user config
             $scope.model.config = Utilities.extend(config, $scope.model.config);
 
+            // check whether a server time offset is needed
+            if (Umbraco.Sys.ServerVariables.application.serverTimeOffset !== undefined) {
+                // Will return something like 120
+                var serverOffset = Umbraco.Sys.ServerVariables.application.serverTimeOffset;
+
+                // Will return something like -120
+                var localOffset = new Date().getTimezoneOffset();
+
+                // If these aren't equal then offsetting is needed
+                // note the minus in front of serverOffset needed 
+                // because C# and javascript return the inverse offset
+                $scope.serverTimeNeedsOffsetting = (-serverOffset !== localOffset);
+            }
+
             // date picker config
             $scope.timePickerConfig = {
                 enableTime: true,
@@ -50,9 +64,7 @@
             });
         }
 
-        $scope.clearDate = function ($event) {
-            // $event.stopPropagation();
-            // $event.preventDefault();
+        $scope.clearDate = function () {
             $scope.hasDatetimePickerValue = false;
             if ($scope.model) {
                 $scope.model.datetimePickerValue = null;
@@ -124,6 +136,7 @@
         }
 
         function updateModelValue(momentDate) {
+            var curMoment = moment($scope.model.value);
             if ($scope.hasDatetimePickerValue) {
                 //check if we are supposed to offset the time
                 if ($scope.model.value && Object.toBoolean($scope.model.config.offsetTime) && Umbraco.Sys.ServerVariables.application.serverTimeOffset !== undefined) {
@@ -139,12 +152,14 @@
                 $scope.model.value = null;
             }
 
-            setDirty();
+            if (!curMoment.isSame(momentDate)) {
+                setDirty();
+            }
         }
     
         function setDirty() {
-            if ($scope.datePickerForm) {
-                $scope.datePickerForm.datepicker.$setDirty();
+            if ($scope.timePickerForm) {
+                $scope.timePickerForm.datepicker.$setDirty();
             }
         }
 

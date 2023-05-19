@@ -39,8 +39,8 @@
                     </umb-toggle>
                 </div>
                 <div class="span1">
-                    <label ng-show="d.isOpen" class="hours-open">{{model.config.labelOpen}}</label>
-                    <label ng-show="!d.isOpen" class="hours-closed">{{model.config.labelClosed}}</label>
+                    <label ng-show="d.isOpen" ng-class="model.config.classOpen">{{model.config.labelOpen}}</label>
+                    <label ng-show="!d.isOpen" ng-class="model.config.classClosed">{{model.config.labelClosed}}</label>
                 </div>
 
                 <textarea ng-show="!d.isOpen" ng-model="d.closedComment"

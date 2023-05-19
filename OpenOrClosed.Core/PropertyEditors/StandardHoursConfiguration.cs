@@ -11,6 +11,6 @@ public class StandardHoursConfiguration : AbstractHoursConfiguration
 
     [ConfigurationField("labelBankHolidays", "Bank Holiday Label",
         "textstring",
-        Description = "Override the label for the BAnk Holiday item")]
+        Description = "Override the label for the Bank Holiday item")]
     public string BankHolidayLabel { get; set; }
 }

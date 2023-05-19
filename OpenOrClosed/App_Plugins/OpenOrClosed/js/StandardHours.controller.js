@@ -29,6 +29,9 @@
     $scope.model.config.time_24hr = Object.toBoolean($scope.model.config.time_24hr)
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
     $scope.model.config.showBankHolidays = Object.toBoolean($scope.model.config.showBankHolidays)
+    $scope.model.config.reversed = Object.toBoolean($scope.model.config.reversed)
+    $scope.model.config.classClosed = !$scope.model.config.reversed ? 'hours-closed' : 'hours-open';
+    $scope.model.config.classOpen = !$scope.model.config.reversed ? 'hours-open' : 'hours-closed';
 
     $scope.vm = {
         pickers: [],
@@ -99,8 +102,8 @@
             $scope.vm.labels.bankHoliday = $scope.model.config.labelBankHolidays
         }
 
-        $scope.vm.labels.placeholderClosedReason = $scope.vm.labels.placeholderClosedReason.replace("{0}", $scope.vm.labels.closed)
-        $scope.vm.labels.placeholderOpenReason = $scope.vm.labels.placeholderOpenReason.replace("{0}", $scope.vm.labels.open)
+        $scope.vm.labels.placeholderClosedReason = $scope.vm.labels.placeholderClosedReason.replace("{0}", $scope.model.config.labelClosed)
+        $scope.vm.labels.placeholderOpenReason = $scope.vm.labels.placeholderOpenReason.replace("{0}", $scope.model.config.labelOpen)
 
         init()
     })

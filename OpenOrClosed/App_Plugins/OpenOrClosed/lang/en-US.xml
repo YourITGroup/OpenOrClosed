@@ -16,8 +16,8 @@
   </area>
   <area alias="openOrClosed">
 	<key alias="comment">Comment</key>
-	<key alias="closedReason">Reason for being {0}</key>
-	<key alias="openReason">Comment</key>
+	<key alias="closedReason">{0} Comment</key>
+	<key alias="openReason">{0} Comment</key>
 	<key alias="open">Open</key>
 	<key alias="closed">Closed</key>
 	<key alias="monday">Monday</key>

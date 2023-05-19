@@ -39,6 +39,11 @@ public abstract class AbstractHoursConfiguration
         Description = "Show Appointment Only option for times")]
     public bool ShowAppointmentOnly { get; set; }
 
+    [ConfigurationField("reversed", "Reversed Values",
+        "boolean",
+        Description = "Open is closed, Closed is open")]
+    public bool Reversed { get; set; }
+
     [ConfigurationField("labelOpen", "Open Label",
         "textstring",
         Description = "Override the label for the Open status")]

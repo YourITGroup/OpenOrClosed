@@ -27,6 +27,10 @@ Adds the ability to specify specific dates, with the same set of features for St
 
 ## Change Log
 
+### Version 2.0.6
+
+UI Improvements and the ability to reverse open/closed status.
+
 ### Version 2.0.5
 
 Special thanks to [Lasse Dollis Spilling](https://github.com/lassespilling) for his Comments contribution and cleanup

@@ -393,3 +393,7 @@ OpenOrClosed.*.zip
 !OpenOrClosed.UmbracoV11/umbraco/Data/Umbraco.sqlite.db
 /OpenOrClosed.UmbracoV10/Views/Partials/blockgrid
 .DS_Store
+/OpenOrClosed.UmbracoV12/App_Plugins/OpenOrClosed
+/OpenOrClosed.UmbracoV12/Views/Partials/blockgrid
+/OpenOrClosed.UmbracoV12/Views/Partials/blocklist
+/OpenOrClosed.UmbracoV12/Views/Partials/grid

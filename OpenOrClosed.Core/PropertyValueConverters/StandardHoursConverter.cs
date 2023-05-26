@@ -42,7 +42,7 @@ public class StandardHoursConverter : PropertyValueConverterBase
                         offset += 7;
                     }
                     foreach(var set in day.HoursOfBusiness) {
-                        set.OpensAt = set.OpensAt.AddDays(offset);
+                        set.OpensAt = set.OpensAt?.AddDays(offset);
                         set.ClosesAt = set.ClosesAt?.AddDays(offset);
                     }
                 }

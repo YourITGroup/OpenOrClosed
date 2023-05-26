@@ -7,7 +7,7 @@ namespace OpenOrClosed.Core.ViewModels;
 public class HoursViewModel
 {
     [DataMember(Name = "opensAt")]
-    public DateTime OpensAt { get; set; }
+    public DateTime? OpensAt { get; set; }
 
     [DataMember(Name = "closesAt")]
     public DateTime? ClosesAt { get; set; }

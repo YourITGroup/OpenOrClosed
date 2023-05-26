@@ -347,6 +347,9 @@
 
 
     $scope.addDate = function () {
+        if (!$scope.model.value) {
+            $scope.model.value = []
+        }
         $scope.model.value.push(createDate())
         $scope.vm.pickers.push(createDateVm())
     }

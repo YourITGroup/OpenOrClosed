@@ -55,7 +55,10 @@ public class SpecialHoursConverter : PropertyValueConverterBase
 
             foreach (var hours in date.HoursOfBusiness)
             {
-                hours.OpensAt = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, hours.OpensAt.Hour, hours.OpensAt.Minute, hours.OpensAt.Second);
+                if (hours.OpensAt != null)
+                {
+                    hours.OpensAt = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, hours.OpensAt?.Hour ?? 0, hours.OpensAt?.Minute ?? 0, hours.OpensAt?.Second ?? 0);
+                }
                 if (hours.ClosesAt != null)
                 {
                     hours.ClosesAt = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, hours.ClosesAt?.Hour ?? 0, hours.ClosesAt?.Minute ?? 0, hours.ClosesAt?.Second ?? 0);

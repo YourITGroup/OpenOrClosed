@@ -159,7 +159,7 @@
     
         function setDirty() {
             if ($scope.timePickerForm) {
-                $scope.timePickerForm.datepicker.$setDirty();
+                $scope.timePickerForm.timepicker.$setDirty();
             }
         }
 

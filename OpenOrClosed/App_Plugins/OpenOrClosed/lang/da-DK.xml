@@ -2,7 +2,7 @@
 <language alias="da" intName="Danish (DK)" localName="Dansk (DK)" lcid="" culture="da-DK">
   <creator>
 	<name>Søren Mastrup</name>
-	<link>OpenOrClosed/App_Plugins/OpenOrClosed/lang/da-DK.xml</link>
+	<link>https://github.com/mastrup</link>
   </creator>
   <area alias="content">
 	<key alias="addDate">Tilføj dato</key>

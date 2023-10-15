@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="da" intName="Danish (DK)" localName="Dansk (DK)" lcid="" culture="da-DK">
+  <creator>
+	<name>Søren Mastrup</name>
+	<link>https://github.com/mastrup</link>
+  </creator>
+  <area alias="content">
+	<key alias="addDate">Tilføj dato</key>
+	<key alias="deleteDate">Fjern dato</key>
+	<key alias="clearTime">Ryd tid</key>
+	<key alias="addHours">Tilføj åbningstid</key>
+	<key alias="deleteHours">Fjern</key>
+  </area>
+  <area alias="validation">
+	<key alias="invalidTime">Ugyldigt tidspunkt</key>
+  </area>
+  <area alias="openOrClosed">
+	<key alias="comment">Kommentar</key>
+	<key alias="closedReason">{0} kommentar</key>
+	<key alias="openReason">{0} kommentar</key>
+	<key alias="open">Åben</key>
+	<key alias="closed">Lukket</key>
+	<key alias="monday">Mandag</key>
+	<key alias="tuesday">Tirsdag</key>
+	<key alias="wednesday">Onsdag</key>
+	<key alias="thursday">Torsdag</key>
+	<key alias="friday">Fredag</key>
+	<key alias="saturday">Lørdag</key>
+	<key alias="sunday">Søndag</key>
+	<key alias="bankHoliday">Helligdag</key>
+	<key alias="appointmentOnly">Kun efter aftale</key>
+	<key alias="unrestricted">Ubegrænset</key>
+  </area>
+</language>

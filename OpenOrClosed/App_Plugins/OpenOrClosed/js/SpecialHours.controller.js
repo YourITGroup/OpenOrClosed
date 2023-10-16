@@ -15,6 +15,7 @@
         labelClosed: 'Closed',
         hoursOptional: false,
         closedHoursOptional: false,
+        hideCommentField: false,
         icons: {
             time: "icon-time",
             date: "icon-calendar",
@@ -360,7 +361,7 @@
             let vm = getDateVm(index)
 
             if (!Array.isArray(date.hoursOfBusiness)) {
-                date.hoursOfBusiness = []
+                vm.hoursOfBusiness = []
             }
 
             if (!Array.isArray(vm.hours)) {

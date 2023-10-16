@@ -19,6 +19,11 @@ public abstract class AbstractHoursConfiguration
         Description = "Make Closed Hours Optional")]
     public bool ClosedHoursOptional { get; set; }
 
+    [ConfigurationField("hideCommentField", "Hide comment field",
+        "boolean",
+        Description = "If checked, the comment field will be hidden.")]
+    public bool HideCommentField { get; set; }
+
     [ConfigurationField("time_24hr", "Time Format",
         "~/App_Plugins/OpenOrClosed/views/prevalues/timeformat.html",
         Description = "12/24 hour clock")]

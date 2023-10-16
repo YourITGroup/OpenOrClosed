@@ -46,9 +46,6 @@
                 <textarea ng-show="!d.isOpen" ng-model="d.closedComment"
                           placeholder="{{vm.labels.placeholderClosedReason}}" class="ui-textarea"></textarea>
 
-                <textarea ng-show="d.isOpen && d.hoursOfBusiness.length === 0" ng-model="d.openComment"
-                          placeholder="{{vm.labels.placeholderOpenReason}}" class="ui-textarea"></textarea>
-
                 <div class="span5" ng-if="!model.config.excludeTimes" ng-show="d.isOpen">
                     <div ng-repeat="h in d.hoursOfBusiness" class="row">
                         <div class="ui-row">
@@ -117,6 +114,10 @@
 
                         <textarea ng-model="h.comment" placeholder="{{vm.labels.placeholderOpenReason}}" class="ui-textarea"></textarea>
                     </div>
+
+                    <textarea ng-show="d.isOpen && d.hoursOfBusiness.length === 0" ng-model="d.openComment"
+                              placeholder="{{vm.labels.placeholderOpenReason}}" class="ui-textarea"></textarea>
+
                     <button type="button" class="umb-node-preview-add mb3 add-hours-btn" ng-click="addHours($index)">
                         <localize key="content_addHours">Add hours</localize>
                     </button>

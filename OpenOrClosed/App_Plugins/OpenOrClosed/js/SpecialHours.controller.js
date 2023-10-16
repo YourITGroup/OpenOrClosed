@@ -361,7 +361,7 @@
             let vm = getDateVm(index)
 
             if (!Array.isArray(date.hoursOfBusiness)) {
-                vm.hoursOfBusiness = []
+                date.hoursOfBusiness = []
             }
 
             if (!Array.isArray(vm.hours)) {

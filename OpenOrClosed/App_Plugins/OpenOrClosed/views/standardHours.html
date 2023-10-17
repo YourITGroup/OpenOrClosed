@@ -14,7 +14,7 @@
                     <label ng-show="!d.isOpen" ng-class="model.config.classClosed">{{model.config.labelClosed}}</label>
                 </div>
 
-                <textarea ng-show="!d.isOpen" ng-model="d.closedComment"
+                <textarea ng-show="!model.config.hideCommentField && !d.isOpen" ng-model="d.closedComment"
                           placeholder="{{vm.labels.placeholderClosedReason}}" class="ui-textarea"></textarea>
 
                 <div class="span5" ng-if="!model.config.excludeTimes" ng-show="d.isOpen">
@@ -72,7 +72,7 @@
 
                         </div>
 
-                        <textarea ng-model="h.comment" placeholder="{{vm.labels.placeholderOpenReason}}" class="ui-textarea"></textarea>
+                        <textarea ng-show="!model.config.hideCommentField" ng-model="h.comment" placeholder="{{vm.labels.placeholderOpenReason}}" class="ui-textarea"></textarea>
 
                         <span ng-show="model.config.showAppointmentOnly">
                             <umb-toggle checked="h.byAppointmentOnly"
@@ -85,7 +85,7 @@
                         </span>
                     </div>
 
-                    <textarea ng-show="d.isOpen && d.hoursOfBusiness.length === 0" ng-model="d.openComment"
+                    <textarea ng-show="!model.config.hideCommentField && d.isOpen && d.hoursOfBusiness.length === 0" ng-model="d.openComment"
                               placeholder="{{vm.labels.placeholderOpenReason}}" class="ui-textarea"></textarea>
 
                     <button type="button" class="umb-node-preview-add mb3 add-hours-btn" ng-click="addHours($index)">

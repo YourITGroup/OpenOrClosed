@@ -13,6 +13,7 @@
         labelClosed: 'Closed',
         hoursOptional: false,
         closedHoursOptional: false,
+        hideCommentField: false,
         labelBankHolidays: 'Bank Holidays',
         icons: {
             time: "icon-time",

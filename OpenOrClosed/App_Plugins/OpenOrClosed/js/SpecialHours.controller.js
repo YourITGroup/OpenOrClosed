@@ -15,6 +15,7 @@
         labelClosed: 'Closed',
         hoursOptional: false,
         closedHoursOptional: false,
+        hideCommentField: false,
         icons: {
             time: "icon-time",
             date: "icon-calendar",

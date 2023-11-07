@@ -2,7 +2,7 @@
 
 ![Open or Closed Logo](https://raw.githubusercontent.com/YourITGroup/OpenOrClosed/master/GithubFiles/Logo/OpenOrClosed_logo.png)
 
-Yet another Business Hours package supporting Umbraco 10+
+Yet another Business Hours package supporting Umbraco 12+
 
 Adds Property Editors to manage standard and special (read holiday) opening/closing times
 
@@ -26,6 +26,12 @@ Monday through to Sunday and optionally Bank Holidays, set each day Open or Clos
 Adds the ability to specify specific dates, with the same set of features for Standard Business Hours.
 
 ## Change Log
+
+### Versiib 3.0.0
+
+* Now targeting Umbraco 12+
+* Better layout of Property Editor UI
+* Changed to a Razor Component Library
 
 ### Version 2.0.1
 

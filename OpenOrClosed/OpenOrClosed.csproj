@@ -1,19 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<TargetFrameworks>net7.0;net8.0</TargetFrameworks>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
-		<ContentTargetFolders>.</ContentTargetFolders>
-		<IncludeBuildOutput>false</IncludeBuildOutput>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<EnableNETAnalyzers>False</EnableNETAnalyzers>
-		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
-		<DebugType>none</DebugType>
-
-		<Version>2.0.4</Version>
+		<StaticWebAssetBasePath>App_Plugins/OpenOrClosed</StaticWebAssetBasePath>
+		<Version>3.0.0</Version>
 		<Description>Open or Closed - Yet another Business Hours package!
-
-Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+
 
 There are two nuGet packages:
 * OpenOrClosed - DataType Definitions and Property Editors for the Umbraco Back-Office
@@ -27,26 +19,17 @@ Monday through to Sunday and optionally Bank Holidays, set each day Open or Clos
 Special Business Hours:
 Adds the ability to specify specific dates, with the same set of features for Standard Business Hours.</Description>
 		<Company>Your IT Group</Company>
-		<Product>$(AssemblyName) for Umbraco 10+</Product>
+		<Product>$(AssemblyName) for Umbraco</Product>
 		<Authors>Robert Foster</Authors>
 		<Copyright>Copyright © Your IT Group 2022 - 2023</Copyright>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/YourITGroup/OpenOrClosed</RepositoryUrl>
 		<PackageIcon>OpenOrClosed_logo.png</PackageIcon>
-		<PackageTags>Umbraco Business Hours Umbraco8 Umbraco9 Datatype dotnetcore dotnet6 umbraco-marketplace</PackageTags>
+		<PackageTags>Umbraco Business Hours Datatype dotnet umbraco-marketplace</PackageTags>
 		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>Targeting Umbraco 10+</PackageReleaseNotes>
+		<PackageReleaseNotes>Targeting Umbraco 12+</PackageReleaseNotes>
 		<PackageReadmeFile>readme.nuget.md</PackageReadmeFile>
-		<RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -58,11 +41,6 @@ Adds the ability to specify specific dates, with the same set of features for St
 		  <Pack>True</Pack>
 		  <PackagePath></PackagePath>
 		</None>
-		
-		<Content Include="App_Plugins\OpenOrClosed\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
-		
-		<None Include="build\**" Pack="true" PackagePath="build" />
-
 	</ItemGroup>
 
 	<ItemGroup>

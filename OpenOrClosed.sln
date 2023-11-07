@@ -6,11 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{E2CE8EFF-919A-46CF-9F6A-3D33EBF9DAFB}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{36DD621C-A1A5-47BD-9D9A-65B67C854AD6}"
-	ProjectSection(SolutionItems) = preProject
-		Package\package.xml = Package\package.xml
+		umbraco-marketplace.json = umbraco-marketplace.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenOrClosed", "OpenOrClosed\OpenOrClosed.csproj", "{E3F218DA-1E12-46D2-B831-02738165068E}"

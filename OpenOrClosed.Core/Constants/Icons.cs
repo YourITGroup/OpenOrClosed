@@ -1,7 +1,6 @@
-﻿namespace OpenOrClosed.Core.Constants
+﻿namespace OpenOrClosed.Core.Constants;
+
+public static class Icons
 {
-    public static class Icons
-    {
-        public const string Time = "icon-time";
-    }
+    public const string Time = "icon-time";
 }

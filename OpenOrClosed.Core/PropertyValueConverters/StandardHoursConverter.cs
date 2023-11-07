@@ -7,49 +7,48 @@ using System.Linq;
 using OpenOrClosed.Core.ViewModels;
 using OpenOrClosed.Core.PropertyEditors;
 
-namespace OpenOrClosed.Core.PropertyValueConverters
+namespace OpenOrClosed.Core.PropertyValueConverters;
+
+public class StandardHoursConverter : PropertyValueConverterBase
 {
-    public class StandardHoursConverter : PropertyValueConverterBase
+    public override bool IsConverter(IPublishedPropertyType propertyType)
+        => StandardHoursPropertyEditor.EditorAlias == propertyType.EditorAlias;
+
+    public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
+        => typeof(IEnumerable<DaysViewModel>);
+
+    public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
+        => PropertyCacheLevel.Element;
+
+    public override object ConvertSourceToIntermediate(IPublishedElement owner, IPublishedPropertyType propertyType, object source, bool preview)
     {
-        public override bool IsConverter(IPublishedPropertyType propertyType)
-            => StandardHoursPropertyEditor.EditorAlias == propertyType.EditorAlias;
-
-        public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
-            => typeof(IEnumerable<DaysViewModel>);
-
-        public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
-            => PropertyCacheLevel.Element;
-
-        public override object ConvertSourceToIntermediate(IPublishedElement owner, IPublishedPropertyType propertyType, object source, bool preview)
+        var sourceString = source?.ToString();
+        if (string.IsNullOrWhiteSpace(sourceString))
         {
-            var sourceString = source?.ToString();
-            if (string.IsNullOrWhiteSpace(sourceString))
-            {
-                return Enumerable.Empty<DaysViewModel>();
-            }
-            var data = JsonConvert.DeserializeObject<IEnumerable<DaysViewModel>>(sourceString);
-
-            // Go through and adjust the dates for each set of hours.
-            var dayOfWeek = DateTime.Now.Date.DayOfWeek;
-            foreach (var day in data)
-            {
-               if (day.IsOpen)
-               {
-                    if (day.Day is not null) {
-                        var offset = day.Day - dayOfWeek ?? 0;
-                        if (day.Day == DayOfWeek.Sunday) {
-                            // Need to add a week to account for Monday being the first in the list.
-                            offset += 7;
-                        }
-                        foreach(var set in day.HoursOfBusiness) {
-                            set.OpensAt = set.OpensAt.AddDays(offset);
-                            set.ClosesAt = set.ClosesAt?.AddDays(offset);
-                        }
-                    }
-               }
-            }
-
-            return data;
+            return Enumerable.Empty<DaysViewModel>();
         }
+        var data = JsonConvert.DeserializeObject<IEnumerable<DaysViewModel>>(sourceString);
+
+        // Go through and adjust the dates for each set of hours.
+        var dayOfWeek = DateTime.Now.Date.DayOfWeek;
+        foreach (var day in data)
+        {
+           if (day.IsOpen)
+           {
+                if (day.Day is not null) {
+                    var offset = day.Day - dayOfWeek ?? 0;
+                    if (day.Day == DayOfWeek.Sunday) {
+                        // Need to add a week to account for Monday being the first in the list.
+                        offset += 7;
+                    }
+                    foreach(var set in day.HoursOfBusiness) {
+                        set.OpensAt = set.OpensAt?.AddDays(offset);
+                        set.ClosesAt = set.ClosesAt?.AddDays(offset);
+                    }
+                }
+           }
+        }
+
+        return data;
     }
 }

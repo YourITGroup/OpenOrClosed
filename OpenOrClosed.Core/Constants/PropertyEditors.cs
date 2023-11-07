@@ -1,10 +1,9 @@
-﻿namespace OpenOrClosed.Core.Constants
+﻿namespace OpenOrClosed.Core.Constants;
+
+public static class PropertyEditors
 {
-    public static class PropertyEditors
+    internal static class PreValues
     {
-        internal static class PreValues
-        {
-            public const string RemoveOldDates = "removeOldDates";
-        }
+        public const string RemoveOldDates = "removeOldDates";
     }
 }

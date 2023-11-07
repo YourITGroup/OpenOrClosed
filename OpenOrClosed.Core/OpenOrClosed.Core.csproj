@@ -31,7 +31,7 @@
 	<PackageProjectUrl>https://github.com/YourITGroup/OpenOrClosed</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/YourITGroup/OpenOrClosed</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
-	<PackageTags>Umbraco Business Hours Umbraco Datatype umbraco-marketplace</PackageTags>
+	<PackageTags>Umbraco Business Hours Umbraco Datatype</PackageTags>
 	<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
 	<PackageReleaseNotes>Targeting Umbraco 12+</PackageReleaseNotes>
 	<PackageReadmeFile>README.nuget.md</PackageReadmeFile>

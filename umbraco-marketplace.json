@@ -1,20 +1,22 @@
 {
-    "AuthorDetails": {
-        "Description": "Robert is the founder of Your IT Team, an Umbraco Gold Partner; and is a seasoned Umbraco Master and MVP.",
-        "Url": "http://youritteam.com.au",
-        "ImageUrl": "https://our.umbraco.com/media/upload/87499f6e-4497-4cb0-a2b6-bf03e222cfc0/220427_ROB_FIONA_0031.jpeg?width=250&height=250&mode=crop"
-    },
-    "Category": "CMS Extensions",
-    "LicenseType": "Free",
-    "PackageType": "Package",
-    "PackagesByAuthor": [],
-    "RelatedPackages": [],
-    "Screenshots": [],
-    "Tags": [
-        "Business Hours",
-        "Property Editors",
-        ""
-    ],
-    "Umbraco8PackageId": "",
-    "VideoUrl": ""
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AuthorDetails": {
+    "Name": "Robert Foster",
+    "Description": "Robert is the founder of Your IT Team, an Umbraco Gold Partner; and is a seasoned Umbraco Master and MVP.",
+    "Url": "http://youritteam.com.au",
+    "ImageUrl": "https://our.umbraco.com/media/upload/87499f6e-4497-4cb0-a2b6-bf03e222cfc0/220427_ROB_FIONA_0031.jpeg?width=250&height=250&mode=crop"
+  },
+  "Category": "Editor Tools",
+  "LicenseTypes": [ "Apache-2.0" ],
+  "PackageType": "Package",
+  "PackagesByAuthor": ["MemberListView"],
+  "RelatedPackages": [],
+  "Title": "Business Hours Property Editor",
+  "Screenshots": [],
+  "Tags": [
+    "Business Hours",
+    "Property Editors"
+  ],
+  "VersionSpecificPackageIds": [],
+  "VideoUrl": ""
 }

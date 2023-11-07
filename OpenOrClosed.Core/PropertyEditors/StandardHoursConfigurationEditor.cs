@@ -2,14 +2,13 @@
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Services;
 
-namespace OpenOrClosed.Core.PropertyEditors
-{
-    public class StandardHoursConfigurationEditor : ConfigurationEditor<StandardHoursConfiguration>
-    {
+namespace OpenOrClosed.Core.PropertyEditors;
 
-        public StandardHoursConfigurationEditor(IIOHelper ioHelper, IEditorConfigurationParser editor) : 
-            base(ioHelper, editor)
-        {
-        }
+public class StandardHoursConfigurationEditor : ConfigurationEditor<StandardHoursConfiguration>
+{
+
+    public StandardHoursConfigurationEditor(IIOHelper ioHelper, IEditorConfigurationParser editor) : 
+        base(ioHelper, editor)
+    {
     }
 }

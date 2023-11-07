@@ -27,11 +27,24 @@ Adds the ability to specify specific dates, with the same set of features for St
 
 ## Change Log
 
-### Versiib 3.0.0
+### Version 3.0.0
 
 * Now targeting Umbraco 12+
 * Better layout of Property Editor UI
 * Changed to a Razor Component Library
+
+### Version 2.0.6
+
+UI Improvements and the ability to reverse open/closed status.
+
+### Version 2.0.5
+
+Special thanks to [Lasse Dollis Spilling](https://github.com/lassespilling) for his Comments contribution and cleanup
+
+* Adds comments for each entry in Standard and Special Hours
+* Added option to have all hours optional optional, not just closing hours.
+* Fixed bug on updating Time pickers
+* Cleaned up layout
 
 ### Version 2.0.1
 

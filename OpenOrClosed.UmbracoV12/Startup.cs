@@ -1,4 +1,4 @@
-﻿namespace OpenOrClosed.UmbracoV11
+namespace OpenOrClosed.UmbracoV12
 {
     public class Startup
     {
@@ -32,6 +32,7 @@
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
+                .AddDeliveryApi()
                 .AddComposers()
                 .Build();
         }
@@ -65,4 +66,3 @@
         }
     }
 }
-

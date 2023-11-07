@@ -9,12 +9,15 @@
 	<key alias="deleteDate">Remove date</key>
 	<key alias="clearTime">Clear time</key>
 	<key alias="addHours">Add hours</key>
-	<key alias="deleteHours">Remove hours</key>
+	<key alias="deleteHours">Remove</key>
   </area>
   <area alias="validation">
 	<key alias="invalidTime">Invalid time</key>
   </area>
   <area alias="openOrClosed">
+	<key alias="comment">Comment</key>
+	<key alias="closedReason">{0} Comment</key>
+	<key alias="openReason">{0} Comment</key>
 	<key alias="open">Open</key>
 	<key alias="closed">Closed</key>
 	<key alias="monday">Monday</key>

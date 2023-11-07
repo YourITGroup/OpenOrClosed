@@ -1,4 +1,4 @@
-﻿namespace OpenOrClosed.UmbracoV11
+namespace OpenOrClosed.UmbracoV12
 {
     public class Program
     {
@@ -17,4 +17,3 @@
                 });
     }
 }
-

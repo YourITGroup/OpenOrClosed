@@ -11,7 +11,9 @@
         time_24hr: true,
         labelOpen: 'Open',
         labelClosed: 'Closed',
+        hoursOptional: false,
         closedHoursOptional: false,
+        hideCommentField: false,
         labelBankHolidays: 'Bank Holidays',
         icons: {
             time: "icon-time",
@@ -28,6 +30,9 @@
     $scope.model.config.time_24hr = Object.toBoolean($scope.model.config.time_24hr)
     $scope.model.config.showAppointmentOnly = Object.toBoolean($scope.model.config.showAppointmentOnly)
     $scope.model.config.showBankHolidays = Object.toBoolean($scope.model.config.showBankHolidays)
+    $scope.model.config.reversed = Object.toBoolean($scope.model.config.reversed)
+    $scope.model.config.classClosed = !$scope.model.config.reversed ? 'hours-closed' : 'hours-open';
+    $scope.model.config.classOpen = !$scope.model.config.reversed ? 'hours-open' : 'hours-closed';
 
     $scope.vm = {
         pickers: [],
@@ -60,7 +65,10 @@
         'openOrClosed_sunday',
         'openOrClosed_bankHoliday',
         'openOrClosed_unrestricted',
-        'openOrClosed_appointmentOnly'
+        'openOrClosed_appointmentOnly',
+        'openOrClosed_comment',
+        'openOrClosed_closedReason',
+        'openOrClosed_openReason'
     ]
     ).then(function (data) {
         $scope.vm.labels.open = data[0]
@@ -75,6 +83,9 @@
         $scope.vm.labels.bankHoliday = data[9]
         $scope.vm.labels.unrestricted = data[10]
         $scope.vm.labels.appointmentOnly = data[11]
+        $scope.vm.labels.comment = data[12]
+        $scope.vm.labels.placeholderClosedReason = data[13]
+        $scope.vm.labels.placeholderOpenReason = data[14]
 
         // Now we can update our config and initialise the data.
 
@@ -91,6 +102,9 @@
         } else {
             $scope.vm.labels.bankHoliday = $scope.model.config.labelBankHolidays
         }
+
+        $scope.vm.labels.placeholderClosedReason = $scope.vm.labels.placeholderClosedReason.replace("{0}", $scope.model.config.labelClosed)
+        $scope.vm.labels.placeholderOpenReason = $scope.vm.labels.placeholderOpenReason.replace("{0}", $scope.model.config.labelOpen)
 
         init()
     })
@@ -110,6 +124,8 @@
             dayoftheweek: $scope.vm.getLabelByIndex(index + 2),
             day: day,
             isOpen: false,
+            openComment: '',
+            closedComment: '',
             hoursOfBusiness: [
             ]
         }
@@ -118,7 +134,8 @@
     function createHours() {
         return {
             opensAt: null,
-            closesAt: null
+            closesAt: null,
+            comment: ''
         }
     }
 
@@ -257,7 +274,7 @@
     }
 
     $scope.addHours = function (index) {
-        if (!$scope.model.config.excludeTimes) {
+        if (!$scope.model.config.excludeTimes || !$scope.model.config.hoursOptional) {
             let day = getDayValue(index)
             let vm = getDayVm(index)
 
@@ -281,7 +298,8 @@
 
         day.hoursOfBusiness.splice(index, 1)
 
-        if (!Array.isArray(day.hoursOfBusiness) || day.hoursOfBusiness.length === 0) {
+        if (!$scope.model.config.hoursOptional &&
+            (!Array.isArray(day.hoursOfBusiness) || day.hoursOfBusiness.length === 0)) {
             $scope.toggleOpen(parentIndex)
         }
     }

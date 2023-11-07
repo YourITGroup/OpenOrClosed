@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFrameworks>net7.0;net8.0</TargetFrameworks>
+	<TargetFrameworks>net7.0</TargetFrameworks>
 	<Version>3.0.0</Version>
 	<Description>
 	Open or Closed - Yet another Business Hours package!

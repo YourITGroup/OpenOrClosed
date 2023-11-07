@@ -13,7 +13,7 @@ jobs:
     
     strategy:
       matrix:
-        dotnet-version: ['8.x' ]
+        dotnet-version: ['7.x' ]
 
     steps:
     - name: Checkout
@@ -29,13 +29,13 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
   
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore OpenOrClosed.Release.sln
   
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build OpenOrClosed.Release.sln --configuration Release --no-restore
         
     - name: Create the package
-      run: dotnet pack --configuration Release -o ${{ env.OUTPUT_PATH }}
+      run: dotnet pack OpenOrClosed.Release.sln --configuration Release -o ${{ env.OUTPUT_PATH }}
       
     - name: Upload NuGet artifacts
       uses: actions/upload-artifact@v1

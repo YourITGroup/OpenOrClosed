@@ -1,4 +1,134 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits UmbracoViewPage<Umbraco.Cms.Web.Common.PublishedModels.Test>
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+
+</head>
+<body>
+    <h2>Standard Business Hours</h2>
+    <table>
+        <tbody>
+            @foreach (var day in Model.StandardHours)
+            {
+                <tr>
+                    <td>
+                        @day.DayOfTheWeek (@day.Day)<br />
+                        Is Open: @day.IsOpen
+                    </td>
+                    <td>
+                        <table>
+                            <tbody>
+                                @foreach (var hours in day.HoursOfBusiness)
+                                {
+                                    <tr>
+                                        <td>
+                                            @hours.OpensAt <text> - </text>@hours.ClosesAt <br />
+                                            <text>By AppointmentOnly:</text> @hours.ByAppointmentOnly
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Special Business Hours</h2>
+    <table>
+        <tbody>
+            @foreach (var day in Model.SpecialHours)
+            {
+                <tr>
+                    <td>
+                        @day.Date<br />
+                        Is Open: @day.IsOpen
+                    </td>
+                    <td>
+                        <table>
+                            <tbody>
+                                @foreach (var hours in day.HoursOfBusiness)
+                                {
+                                    <tr>
+                                        <td>
+                                            @hours.OpensAt <text> - </text>@hours.ClosesAt <br />
+                                            <text>By AppointmentOnly:</text> @hours.ByAppointmentOnly
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Standard Business Hours - No Times</h2>
+    <table>
+        <tbody>
+            @foreach (var day in Model.StandardHoursNoTimes)
+            {
+                <tr>
+                    <td>
+                        @day.DayOfTheWeek (@day.Day)<br />
+                        Is Open: @day.IsOpen
+                    </td>
+                    <td>
+                        <table>
+                            <tbody>
+                                @foreach (var hours in day.HoursOfBusiness)
+                                {
+                                    <tr>
+                                        <td>
+                                            @hours.OpensAt <text> - </text>@hours.ClosesAt <br />
+                                            <text>By AppointmentOnly:</text> @hours.ByAppointmentOnly
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Special Business Hours - No Times</h2>
+    <table>
+        <tbody>
+            @foreach (var day in Model.SpecialHoursNoTimes)
+            {
+                <tr>
+                    <td>
+                        @day.Date<br />
+                        Is Open: @day.IsOpen
+                    </td>
+                    <td>
+                        <table>
+                            <tbody>
+                                @foreach (var hours in day.HoursOfBusiness)
+                                {
+                                    <tr>
+                                        <td>
+                                            @hours.OpensAt <text> - </text>@hours.ClosesAt <br />
+                                            <text>By AppointmentOnly:</text> @hours.ByAppointmentOnly
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Test>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{

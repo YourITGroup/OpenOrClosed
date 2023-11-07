@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
-	<Version>2.0.8</Version>
+	<TargetFrameworks>net7.0;net8.0</TargetFrameworks>
+	<Version>3.0.0</Version>
 	<Description>
 	Open or Closed - Yet another Business Hours package!
 
@@ -21,7 +21,7 @@
 	Adds the ability to specify specific dates, with the same set of features for Standard Business Hours.
 	</Description>
 	<Company>Your IT Group</Company>
-	<Product>OpenOrClosed Core dll for Umbraco 10+</Product>
+	<Product>OpenOrClosed Core dll for Umbraco 11+</Product>
 	<Authors>Robert Foster</Authors>
 	<Copyright>Copyright © Your IT Group 2022 - 2023</Copyright>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -33,20 +33,12 @@
 	<RepositoryType>git</RepositoryType>
 	<PackageTags>Umbraco Business Hours Umbraco Datatype</PackageTags>
 	<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-	<PackageReleaseNotes>Targeting Umbraco 10+</PackageReleaseNotes>
+	<PackageReleaseNotes>Targeting Umbraco 12+</PackageReleaseNotes>
 	<PackageReadmeFile>README.nuget.md</PackageReadmeFile>
   </PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<PlatformTarget>AnyCPU</PlatformTarget>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <PlatformTarget>AnyCPU</PlatformTarget>
-	</PropertyGroup>
-
 	<ItemGroup>
-		<PackageReference Include="Umbraco.Cms.Web.Common" Version="10.0.0">
+		<PackageReference Include="Umbraco.Cms.Web.Common" Version="[12.0.0,13.999)">
 		</PackageReference>
 	</ItemGroup>
 
@@ -59,8 +51,5 @@
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Remove="ViewModels\DayOfTheWeek.cs" />
 	</ItemGroup>
 </Project>

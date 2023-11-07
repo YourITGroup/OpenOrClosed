@@ -12,11 +12,8 @@ public class HoursViewModel
     [DataMember(Name = "closesAt")]
     public DateTime? ClosesAt { get; set; }
 
-    [DataMember(Name = "openComment")]
-    public string OpenComment { get; set; }
-
-    [DataMember(Name = "closedComment")]
-    public string ClosedComment { get; set; }
+    [DataMember(Name = "comment")]
+    public string Comment { get; set; }
 
     [DataMember(Name = "byAppointmentOnly")]
     public bool ByAppointmentOnly { get; set; } = false;

@@ -16,8 +16,11 @@ public class DaysViewModel
     [DataMember(Name = "isOpen")]
     public bool IsOpen { get; set; }
 
-    [DataMember(Name = "comment")]
-    public string Comment { get; set; }
+    [DataMember(Name = "openComment")]
+    public string OpenComment { get; set; }
+
+    [DataMember(Name = "closedComment")]
+    public string ClosedComment { get; set; }
 
     [DataMember(Name = "hasHours")]
     public bool HasHours { get; set; }

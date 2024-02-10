@@ -32,7 +32,7 @@
                                                    type="text"
                                                    ng-model="vm.pickers[$parent.$parent.$parent.$index].hours[$parent.$parent.$index].opensAt.pickerValue"
                                                    ng-blur="timeInputChanged($parent.$parent.$parent.$index, $parent.$parent.$index, 'opensAt')"
-                                                   ng-required="!model.config.excludeTimes"
+                                                   ng-required="!model.config.excludeTimes && !model.config.hoursOptional"
                                                    val-server="value"
                                                    class="datepickerinput"
                                                    autocomplete="off" />
@@ -54,7 +54,7 @@
                                                    type="text"
                                                    ng-model="vm.pickers[$parent.$parent.$parent.$index].hours[$parent.$parent.$index].closesAt.pickerValue"
                                                    ng-blur="timeInputChanged($parent.$parent.$parent.$index, $parent.$parent.$index, 'closesAt')"
-                                                   ng-required="!model.config.excludeTimes && !model.config.closedHoursOptional"
+                                                   ng-required="!model.config.excludeTimes && !model.config.hoursOptional && !model.config.closedHoursOptional"
                                                    val-server="value"
                                                    class="datepickerinput"
                                                    autocomplete="off" />

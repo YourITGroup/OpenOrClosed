@@ -6,14 +6,14 @@ Yet another Business Hours package supporting Umbraco 12+
 
 Adds Property Editors to manage standard and special (read holiday) opening/closing times
 
-The OpenOrClosed.Core nuget package can be used in Core projects to add support for ModelsBuilder generated Content Models.
+The OpenOrClosed nuget package can be used in Core projects to add support for ModelsBuilder generated Content Models.
 
 Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+
 
 There are two nuGet packages:
 
 * OpenOrClosed - DataType Definitions and Property Editors for the Umbraco Back-Office
-* OpenOrClosed.Core - PropertyValueConverters for use with ModelsBuilder to provide strongly typed models.
+* OpenOrClosed - PropertyValueConverters for use with ModelsBuilder to provide strongly typed models.
 
 ## Property Editors
 

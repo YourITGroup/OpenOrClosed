@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenOrClosed", "OpenOrClosed\OpenOrClosed.csproj", "{E3F218DA-1E12-46D2-B831-02738165068E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenOrClosed.Core", "OpenOrClosed.Core\OpenOrClosed.Core.csproj", "{CD61298A-317E-4554-9B59-80F74904B758}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenOrClosed", "OpenOrClosed\OpenOrClosed.csproj", "{CD61298A-317E-4554-9B59-80F74904B758}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{5064D0BE-331E-4171-B175-EDD15B1B3D4F}"
 	ProjectSection(SolutionItems) = preProject

@@ -1,0 +1,14 @@
+{
+    "id": "OpenOrClosed",
+    "name": "Open Or Closed",
+    "version": "4.0.0",
+    "allowPackageTelemetry": true,
+    "extensions": [
+        {
+            "type": "bundle",
+            "alias": "OpenOrClosed.Bundle.PropertyEditors",
+            "name": "Open Or Closed Bundle",
+            "js": "/App_Plugins/OpenOrClosed/open-or-closed.js"
+        }
+    ]
+}

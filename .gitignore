@@ -388,9 +388,11 @@ FodyWeavers.xsd
 /Package
 !/Package/package.xml
 OpenOrClosed.*.zip
-!OpenOrClosed.UmbracoV13/umbraco/Data/Umbraco.sqlite.db
-/OpenOrClosed.UmbracoV13/Views/Partials/blockgrid
 .DS_Store
-/OpenOrClosed.UmbracoV12/Views/Partials/blockgrid
-/OpenOrClosed.UmbracoV12/Views/Partials/blocklist
-/OpenOrClosed.UmbracoV12/Views/Partials/grid
+!OpenOrClosed.TestSite/umbraco/Data/Umbraco.sqlite.db
+/OpenOrClosed.TestSite/Views/Partials/blockgrid
+/OpenOrClosed.TestSite/Views/Partials/blocklist
+/OpenOrClosed.TestSite/Views/Partials/grid
+/OpenOrClosed/wwwroot/App_Plugins
+OpenOrClosed.TestSite/appsettings-schema.*
+OpenOrClosed.TestSite/umbraco-package-schema.json

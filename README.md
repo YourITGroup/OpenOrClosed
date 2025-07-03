@@ -12,20 +12,20 @@ Nuget Packages:
 | Package | Version | Downloads |
 | -- | -- | -- |
 | OpenOrClosed | [![NuGet release](https://img.shields.io/nuget/v/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) | [![NuGet release](https://img.shields.io/nuget/dt/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) |
-| OpenOrClosed.Core | [![NuGet release](https://img.shields.io/nuget/v/OpenOrClosed.Core.svg)](https://www.nuget.org/packages/OpenOrClosed.Core/) | [![NuGet release](https://img.shields.io/nuget/dt/OpenOrClosed.Core.svg)](https://www.nuget.org/packages/OpenOrClosed.Core/) |
+| OpenOrClosed | [![NuGet release](https://img.shields.io/nuget/v/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) | [![NuGet release](https://img.shields.io/nuget/dt/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) |
 
 Umbraco Package: [![Our Umbraco project page](https://img.shields.io/badge/our-umbraco-orange.svg)](https://our.umbraco.org/projects/backoffice-extensions/open-or-closed)
 
 Adds Property Editors to manage standard and special (read holiday) opening/closing times
 
-The OpenOrClosed.Core nuget package can be used in Core projects to add support for ModelsBuilder generated Content Models.
+The OpenOrClosed nuget package can be used in Core projects to add support for ModelsBuilder generated Content Models.
 
 Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time picker and targets Umbraco 8.6+
 
 There are two nuGet packages:
 
 * OpenOrClosed - DataType Definitions and Property Editors for the Umbraco Back-Office
-* OpenOrClosed.Core - PropertyValueConverters for use with ModelsBuilder to provide strongly typed models.
+* OpenOrClosed - PropertyValueConverters for use with ModelsBuilder to provide strongly typed models.
 
 ## Property Editors
 

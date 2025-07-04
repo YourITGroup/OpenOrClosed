@@ -73,11 +73,6 @@
 		</None>
 	</ItemGroup>
 
-	<!-- <Target Name="PackagePrepareAssets" BeforeTargets="PreBuildEvent"
-		Condition="'$(Configuration)' == 'Release'">
-		<Exec Command="npm run build" WorkingDirectory="Client" />
-	</Target> -->
-
 	<!--
       1. Install npm packages
       "Inputs" and "Outputs" are used for incremental builds. If all output items are up-to-date, MSBuild

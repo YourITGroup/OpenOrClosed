@@ -44,13 +44,13 @@ export const manifests: Array<UmbExtensionManifest> = [{
                     alias: 'defaultOpen',
                     label: 'Default Open Time',
                     description: 'Set a default open time - defaults to 09:00',
-                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.TextBox',
+                    propertyEditorUiAlias: 'OpenOrClosed.PropertyEditorUi.TimeInput',
                 },
                 {
                     alias: 'defaultClose',
                     label: 'Default Close Time',
                     description: 'Enter a default close time - defaults to 17:00',
-                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.TextBox',
+                    propertyEditorUiAlias: 'OpenOrClosed.PropertyEditorUi.TimeInput',
                 },
                 {
                     alias: 'defaultToClosed',

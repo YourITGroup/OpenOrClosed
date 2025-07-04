@@ -5,13 +5,13 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<StaticWebAssetBasePath>App_Plugins/OpenOrClosed</StaticWebAssetBasePath>
-		<!-- <EnableDefaultContentItems>true</EnableDefaultContentItems> -->
+		<StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+		<EnableDefaultContentItems>true</EnableDefaultContentItems>
 	</PropertyGroup>
 
 	<!-- NuGet package metadata -->
 	<PropertyGroup>
-		<Version>4.0.0-alpha001</Version>
+		<Version>16.0.0-beta1</Version>
 		<Description>
 			Open or Closed - Yet another Business Hours package!
 
@@ -22,8 +22,7 @@
 
 			Standard Business Hours:
 			Monday through to Sunday and optionally Bank Holidays, set each day Open or Closed with
-			multiple ranges of times in either 24- or 12-hour time. Each time range can be flagged
-			with "By Appointment".
+			multiple ranges of times. Each time range can be flagged with "By Appointment".
 
 			Special Business Hours:
 			Adds the ability to specify specific dates, with the same set of features for Standard

@@ -1,20 +1,14 @@
-﻿WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()
     .AddWebsite()
-    .AddDeliveryApi()
     .AddComposers()
     .Build();
 
 WebApplication app = builder.Build();
 
 await app.BootUmbracoAsync();
-
-if (builder.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
 
 
 app.UseUmbraco()

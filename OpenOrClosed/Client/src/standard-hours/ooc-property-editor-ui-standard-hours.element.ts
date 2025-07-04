@@ -52,22 +52,25 @@ export class OocPropertyEditorUiStandardHoursElement extends BusinessHoursBaseEl
         const dotwLength = this._config.showBankHolidays ? 8 : 7;
         
         if (!this.value || !Array.isArray(this.value)) {
-            this.value = [];
+            const newValue = [];
             for (let i = 0; i < dotwLength; i++) {
-                this.value.push(this._createDay(i));
+                newValue.push(this._createDay(i));
             }
+            this.value = newValue;
         } else {
             // Adjust array size based on showBankHolidays config
             if (!this._config.showBankHolidays && this.value.length === 8) {
-                this.value.pop();
+                this.value = [...this.value.slice(0, 7)];
             } else if (this._config.showBankHolidays && this.value.length === 7) {
-                this.value.push(this._createDay(7));
+                this.value = [...this.value, this._createDay(7)];
             }
         }
 
         // Fix up bank holiday label from config
         if (this._config.showBankHolidays && this.value[7]) {
-            this.value[7].dayoftheweek = this._config.labelBankHolidays || 'Bank Holidays';
+            const updatedValue = [...this.value];
+            updatedValue[7] = { ...updatedValue[7], dayoftheweek: this._config.labelBankHolidays || 'Bank Holidays' };
+            this.value = updatedValue;
         }
         
         this._days = [...this.value];
@@ -91,6 +94,8 @@ export class OocPropertyEditorUiStandardHoursElement extends BusinessHoursBaseEl
             hoursOfBusiness: []
         };
     }
+
+
 
 
     static styles = css`
@@ -171,10 +176,11 @@ export class OocPropertyEditorUiStandardHoursElement extends BusinessHoursBaseEl
                             <div class="day-status">
                                 <uui-toggle
                                     .checked=${day.isOpen}
-                                    @change=${() => this._toggleDayOpen(dayIndex)}>
+                                    @change=${() => this._toggleDayOpen(dayIndex)}
+                                    label="Toggle ${day.dayoftheweek} open/closed">
                                 </uui-toggle>
-                                <span class=${day.isOpen ? 'hours-open' : 'hours-closed'}>
-                                    ${day.isOpen ? (this._config.labelOpen || 'Open') : (this._config.labelClosed || 'Closed')}
+                                <span class=${this._getDisplayClass(day)}>
+                                    ${this._getDisplayLabel(day)}
                                 </span>
                             </div>
                         </div>

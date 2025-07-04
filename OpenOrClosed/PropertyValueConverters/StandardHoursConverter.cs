@@ -1,5 +1,6 @@
 ﻿using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
+using Umbraco.Cms.Core.Services;
 using Newtonsoft.Json;
 using OpenOrClosed.ViewModels;
 using OpenOrClosed.PropertyEditors;
@@ -22,12 +23,14 @@ public class StandardHoursConverter : PropertyValueConverterBase
         var sourceString = source?.ToString();
         if (string.IsNullOrWhiteSpace(sourceString))
         {
-            return Enumerable.Empty<DaysViewModel>();
+            return default;
+            // return Enumerable.Empty<DaysViewModel>();
         }
         var data = JsonConvert.DeserializeObject<IEnumerable<DaysViewModel>>(sourceString);
         if (data is null)
         {
-            return data;
+            return default;
+            // return Enumerable.Empty<DaysViewModel>();
         }
 
         // Go through and adjust the dates for each set of hours.

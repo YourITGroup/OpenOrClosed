@@ -1,4 +1,5 @@
-﻿@inherits UmbracoViewPage<Umbraco.Cms.Web.Common.PublishedModels.Test>
+﻿@using Umbraco.Cms.Web.Common.Views
+@inherits UmbracoViewPage<Umbraco.Cms.Web.Common.PublishedModels.Test>
 @{
     Layout = null;
 }
@@ -44,7 +45,8 @@
     <h2>Special Business Hours</h2>
     <table>
         <tbody>
-            @foreach (var day in Model.SpecialHours)
+            @if (Model.SpecialHours is not null) {
+            foreach (var day in Model.SpecialHours)
             {
                 <tr>
                     <td>
@@ -70,6 +72,7 @@
                         </table>
                     </td>
                 </tr>
+            }
             }
         </tbody>
     </table>
@@ -110,7 +113,8 @@
     <h2>Special Business Hours - No Times</h2>
     <table>
         <tbody>
-            @foreach (var day in Model.SpecialHoursNoTimes)
+            @if (Model.SpecialHours is not null) {
+            foreach (var day in Model.SpecialHoursNoTimes)
             {
                 <tr>
                     <td>
@@ -136,6 +140,7 @@
                         </table>
                     </td>
                 </tr>
+            }
             }
         </tbody>
     </table>

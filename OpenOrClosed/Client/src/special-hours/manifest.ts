@@ -1,0 +1,100 @@
+export const manifests: Array<UmbExtensionManifest> = [{
+	type: 'propertyEditorUi',
+	alias: 'OpenOrClosed.PropertyEditorUi.SpecialHours',
+	name: 'Special Business Hours Property Editor UI',
+	element: () => import('./ooc-property-editor-ui-special-hours.element.js'),
+	meta: {
+		label: 'Special Business Hours',
+		icon: 'icon-time',
+		group: 'richContent',
+        propertyEditorSchemaAlias: "OpenOrClosed.SpecialHours",
+        settings: {
+            properties: [
+                {
+                    alias: 'excludeTimes',
+                    label: 'Exclude Times?',
+                    description: 'Turns off teh ability to select times.',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.Toggle',
+                },
+                {
+                    alias: 'hoursOptional',
+                    label: 'Hours Optional?',
+                    description: 'Make All Hours Optional',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.Toggle',
+                },
+                {
+                    alias: 'closedHoursOptional',
+                    label: 'Closed Hours Optional?',
+                    description: 'Make Closed Hours Optional',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.Toggle',
+                },
+                {
+                    alias: 'hideCommentField',
+                    label: 'Hide comment field?',
+                    description: 'Turns off the ability to add a comment.',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.Toggle',
+                },
+                {
+                    alias: 'time_24hr',
+                    label: 'Time Format',
+                    description: '12/24 hour clock',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.Toggle',
+                },
+                {
+                    alias: 'defaultOpen',
+                    label: 'Default Open Time',
+                    description: 'Set a default open time - defaults to 09:00',
+                    propertyEditorUiAlias: 'OpenOrClosed.PropertyEditorUi.TimeInput',
+                },
+                {
+                    alias: 'defaultClose',
+                    label: 'Default Close Time',
+                    description: 'Enter a default close time - defaults to 17:00',
+                    propertyEditorUiAlias: 'OpenOrClosed.PropertyEditorUi.TimeInput',
+                },
+                {
+                    alias: 'defaultToClosed',
+                    label: 'Default to Closed?',
+                    description: 'New special days default to closed',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.Toggle',
+                },
+                {
+                    alias: 'removeOldDates',
+                    label: 'Remove Old Dates?',
+                    description: 'Automatically remove past dates',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.Toggle',
+                },
+                {
+                    alias: 'showAppointmentOnly',
+                    label: 'Enable Appointment Only?',
+                    description: 'Show Appointment Only option for times',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.Toggle',
+                },
+                {
+                    alias: 'reversed',
+                    label: 'Reversed Values?',
+                    description: 'Open is closed, Closed is open',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.Toggle',
+                },
+                {
+                    alias: 'labelOpen',
+                    label: 'Open Label',
+                    description: 'Override the label for the Open status',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.TextBox',
+                },
+                {
+                    alias: 'labelClosed',
+                    label: 'Closed Label',
+                    description: 'Override the label for the Closed status',
+                    propertyEditorUiAlias: 'Umb.PropertyEditorUi.TextBox',
+                },
+            ],
+            defaultData: [
+                { alias: 'time_24hr', value: true },
+                { alias: 'defaultOpen', value: '09:00' },
+                { alias: 'defaultClose', value: '17:00' },
+                { alias: 'removeOldDates', value: true },
+            ],
+        },
+	},
+}];

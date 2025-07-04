@@ -7,7 +7,6 @@ on:
 env:
   SOLUTION: OpenOrClosed.Release.sln
   PLUGIN_PROJECT: OpenOrClosed/OpenOrClosed.csproj
-  CORE_PROJECT: OpenOrClosed.Core/OpenOrClosed.Core.csproj
   OUTPUT_PATH: ${{ github.workspace }}/.output
 
 jobs:
@@ -18,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        dotnet-version: ['7.x' ]
+        dotnet-version: ['9.x' ]
 
     steps:
 
@@ -31,6 +30,11 @@ jobs:
       with:
         fetch-depth: 0
 
+    # Support @umbraco-cms/backoffice@16.0.0 requires node >= 22
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        
     - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
       uses: actions/setup-dotnet@v3
 

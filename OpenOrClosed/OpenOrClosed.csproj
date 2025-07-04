@@ -11,12 +11,9 @@
 
 	<!-- NuGet package metadata -->
 	<PropertyGroup>
-		<Version>16.0.0-beta1</Version>
+		<Version>16.0.0-beta2</Version>
 		<Description>
 			Open or Closed - Yet another Business Hours package!
-
-			Inspired by the Dexmoor BusinessHours package, this one uses the built-in date and time
-			picker and targets Umbraco 16
 
 			Property Editors:
 

@@ -4,10 +4,10 @@
   "version": "16.0.0",
   "type": "module",
   "scripts": {
-    "watch": "vite build --watch",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "watch": "vite build --watch"
   },
   "devDependencies": {
     "@umbraco-cms/backoffice": "^16.0.0",

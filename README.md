@@ -88,11 +88,6 @@ Special thanks to [Lasse Dollis Spilling](https://github.com/lassespilling) for 
 
 * Removes the Id property from the editor as it's redundant
 
-## Sample Web project
-
-* Uses SqlCe database - username is "**admin@admin.com**"; password is "**Password123**"
-* Umbraco 8.7.0
-
 ## Logo
 
 The package logo uses the "open hours" (by Gregor Cesnar) icon from the Noun Project, licensed under CC BY 3.0 US.

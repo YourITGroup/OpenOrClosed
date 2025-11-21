@@ -376,7 +376,7 @@ FodyWeavers.xsd
 
 # Ignore package files other than the manifest.
 .DS_Store
-!OpenOrClosed.TestSite/umbraco/Data/Umbraco.sqlite.db
+
 /OpenOrClosed.TestSite/Views/Partials/blockgrid
 /OpenOrClosed.TestSite/Views/Partials/blocklist
 /OpenOrClosed.TestSite/Views/Partials/grid

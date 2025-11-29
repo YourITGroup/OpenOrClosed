@@ -2,7 +2,7 @@
 
 ![Open or Closed Logo](https://raw.githubusercontent.com/YourITGroup/OpenOrClosed/master/GithubFiles/Logo/OpenOrClosed_logo.png)
 
-Yet another Business Hours package supporting Umbraco 16
+Yet another Business Hours package for Umbraco
 
 [![OpenOrClosed - CI](https://github.com/YourITGroup/OpenOrClosed/actions/workflows/build.yml/badge.svg)](https://github.com/YourITGroup/OpenOrClosed/actions/workflows/build.yml)
 [![OpenOrClosed - Release](https://github.com/YourITGroup/OpenOrClosed/actions/workflows/release.yml/badge.svg)](https://github.com/YourITGroup/OpenOrClosed/actions/workflows/release.yml)
@@ -14,7 +14,7 @@ Nuget Packages:
 | OpenOrClosed | [![NuGet release](https://img.shields.io/nuget/v/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) | [![NuGet release](https://img.shields.io/nuget/dt/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) |
 | OpenOrClosed | [![NuGet release](https://img.shields.io/nuget/v/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) | [![NuGet release](https://img.shields.io/nuget/dt/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) |
 
-Umbraco Package: [![Our Umbraco project page](https://img.shields.io/badge/our-umbraco-orange.svg)](https://our.umbraco.org/projects/backoffice-extensions/open-or-closed)
+Umbraco Package: [![Our Umbraco project page](https://img.shields.io/badge/umbraco-marketplace-green.svg)](https://marketplace.umbraco.com/package/openorclosed)
 
 Adds Property Editors to manage standard and special (read holiday) opening/closing times
 
@@ -36,6 +36,10 @@ Monday through to Sunday and optionally Bank Holidays, set each day Open or Clos
 Adds the ability to specify specific dates, with the same set of features for Standard Business Hours.
 
 ## Change Log
+
+### Version 17
+
+Updated for Umbraco 17
 
 ### Version 16
 

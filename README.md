@@ -12,18 +12,12 @@ Nuget Packages:
 | Package | Version | Downloads |
 | -- | -- | -- |
 | OpenOrClosed | [![NuGet release](https://img.shields.io/nuget/v/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) | [![NuGet release](https://img.shields.io/nuget/dt/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) |
-| OpenOrClosed | [![NuGet release](https://img.shields.io/nuget/v/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) | [![NuGet release](https://img.shields.io/nuget/dt/OpenOrClosed.svg)](https://www.nuget.org/packages/OpenOrClosed/) |
 
 Umbraco Package: [![Our Umbraco project page](https://img.shields.io/badge/umbraco-marketplace-green.svg)](https://marketplace.umbraco.com/package/openorclosed)
 
 Adds Property Editors to manage standard and special (read holiday) opening/closing times
 
 The OpenOrClosed nuget package can be used in Core projects to add support for ModelsBuilder generated Content Models.
-
-There are two nuGet packages:
-
-* OpenOrClosed - DataType Definitions and Property Editors for the Umbraco Back-Office
-* OpenOrClosed - PropertyValueConverters for use with ModelsBuilder to provide strongly typed models.
 
 ## Property Editors
 
